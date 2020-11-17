@@ -1,4 +1,4 @@
 package android.flor.notasdroidapp_flor.modelo
 
-class Asignatura {
+class Ciclo_Asignatura {
 }
