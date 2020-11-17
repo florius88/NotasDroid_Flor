@@ -15,7 +15,7 @@
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintBottom_toTopOf="@+id/textViewRegistroNombre"
-            app:layout_constraintVertical_bias="0.988" android:layout_marginBottom="5dp"
+            app:layout_constraintVertical_bias="0.988" android:layout_marginBottom="40dp"
             android:textAlignment="center" android:layout_marginStart="20dp" android:layout_marginEnd="20dp"/>
     <TextView
             android:text="@string/registro_nombre"
@@ -24,7 +24,7 @@
             app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0" android:textSize="18sp"
             app:layout_constraintBottom_toTopOf="@+id/editTextRegistroNombre" android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"/>
+            android:layout_marginEnd="20dp" android:layout_marginBottom="10dp"/>
     <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -33,7 +33,7 @@
             android:id="@+id/editTextRegistroNombre"
             app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.339"
-            app:layout_constraintBottom_toTopOf="@+id/textVieRegistroEmail" android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toTopOf="@+id/textVieRegistroEmail" android:layout_marginBottom="40dp"
             android:layout_marginStart="20dp" android:layout_marginEnd="20dp"/>
     <TextView
             android:text="@string/registro_email"
@@ -42,7 +42,7 @@
             app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toTopOf="@+id/editTextRegistroEmail"
             app:layout_constraintHorizontal_bias="0.076" android:textSize="18sp" android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"/>
+            android:layout_marginEnd="20dp" android:layout_marginBottom="10dp"/>
     <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -51,7 +51,7 @@
             android:id="@+id/editTextRegistroEmail"
             app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.339"
-            app:layout_constraintBottom_toTopOf="@+id/textViewRegistroFoto" android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toTopOf="@+id/textViewRegistroFoto" android:layout_marginBottom="40dp"
             android:layout_marginStart="20dp" android:layout_marginEnd="20dp"/>
     <TextView
             android:text="@string/registro_foto"
@@ -59,54 +59,56 @@
             android:layout_height="wrap_content" android:id="@+id/textViewRegistroFoto"
             app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toTopOf="@+id/buttonRegistroHacerFoto"
-            app:layout_constraintHorizontal_bias="0.498" android:layout_marginBottom="2dp" android:textSize="18sp"
+            app:layout_constraintHorizontal_bias="0.498" android:layout_marginBottom="10dp" android:textSize="18sp"
             android:layout_marginStart="20dp" android:layout_marginEnd="20dp" android:textAlignment="center"/>
     <Button
             android:text="@string/registro_hacerFoto"
             android:layout_width="0dp"
             android:layout_height="wrap_content" android:id="@+id/buttonRegistroHacerFoto"
             app:layout_constraintBottom_toTopOf="@+id/textViewRegistroCiclo"
-            android:layout_marginBottom="8dp" android:textSize="18sp" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginBottom="40dp" android:textSize="18sp" app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="20dp" app:layout_constraintEnd_toStartOf="@+id/buttonRegistroSeleccionarFoto"
             android:layout_marginEnd="8dp"/>
     <Button
             android:text="@string/registro_seleccionarFoto"
             android:layout_width="0dp"
             android:layout_height="wrap_content" android:id="@+id/buttonRegistroSeleccionarFoto"
-            app:layout_constraintBottom_toTopOf="@+id/textViewRegistroCurso" android:layout_marginBottom="12dp"
+            app:layout_constraintBottom_toTopOf="@+id/textViewRegistroCurso" android:layout_marginBottom="40dp"
             android:textSize="18sp" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="20dp"
             app:layout_constraintStart_toEndOf="@+id/buttonRegistroHacerFoto"
             app:layout_constraintHorizontal_bias="1.0" android:layout_marginStart="8dp"/>
     <TextView
             android:text="@string/registro_ciclo"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content" android:id="@+id/textViewRegistroCiclo"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintBottom_toTopOf="@+id/spinnerRegistroCiclo"
             android:textSize="18sp" android:layout_marginStart="20dp"
-            app:layout_constraintEnd_toStartOf="@+id/textViewRegistroCurso" android:layout_marginEnd="150dp"/>
+            app:layout_constraintEnd_toStartOf="@+id/textViewRegistroCurso" android:layout_marginEnd="8dp"
+            android:layout_marginBottom="10dp"/>
     <Spinner
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content" android:id="@+id/spinnerRegistroCiclo"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintBottom_toTopOf="@+id/textViewRegistroContrasenia" android:layout_marginBottom="12dp"
+            app:layout_constraintBottom_toTopOf="@+id/textViewRegistroContrasenia" android:layout_marginBottom="40dp"
             android:layout_marginStart="20dp" app:layout_constraintEnd_toStartOf="@+id/spinnerRegistroCurso"
-            app:layout_constraintHorizontal_bias="0.638" android:layout_marginEnd="150dp"/>
+            app:layout_constraintHorizontal_bias="0.638" android:layout_marginEnd="8dp"/>
     <TextView
             android:text="@string/registro_curso"
-            android:layout_width="100dp"
+            android:layout_width="0dp"
             android:layout_height="wrap_content" android:id="@+id/textViewRegistroCurso"
             app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="20dp"
             app:layout_constraintBottom_toTopOf="@+id/spinnerRegistroCurso"
             android:textSize="18sp"
-    />
+            android:layout_marginBottom="10dp" android:layout_marginStart="8dp"
+            app:layout_constraintStart_toEndOf="@+id/textViewRegistroCiclo"/>
     <Spinner
-            android:layout_width="100dp"
+            android:layout_width="0dp"
             android:layout_height="wrap_content" android:id="@+id/spinnerRegistroCurso"
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginEnd="20dp" app:layout_constraintBottom_toTopOf="@+id/textViewRegistroContrasenia"
-            android:layout_marginBottom="8dp"
-    />
+            android:layout_marginBottom="40dp"
+            android:layout_marginStart="8dp" app:layout_constraintStart_toEndOf="@+id/spinnerRegistroCiclo"/>
     <TextView
             android:text="@string/registro_contrasenia"
             android:layout_width="match_parent"
@@ -114,7 +116,8 @@
             app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.093"
             app:layout_constraintBottom_toTopOf="@+id/editTextRegistroContrasenia"
-            android:textSize="18sp" android:layout_marginStart="20dp" android:layout_marginEnd="20dp"/>
+            android:textSize="18sp" android:layout_marginStart="20dp" android:layout_marginEnd="20dp"
+            android:layout_marginBottom="10dp"/>
     <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -124,7 +127,7 @@
             app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.352"
             app:layout_constraintBottom_toTopOf="@+id/textViewRegistroConfirmarContrasenia"
-            android:layout_marginBottom="8dp" android:layout_marginStart="20dp" android:layout_marginEnd="20dp"/>
+            android:layout_marginBottom="40dp" android:layout_marginStart="20dp" android:layout_marginEnd="20dp"/>
     <TextView
             android:text="@string/registro_confirmarContrasenia"
             android:layout_width="match_parent"
@@ -132,7 +135,8 @@
             app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.117"
             app:layout_constraintBottom_toTopOf="@+id/editTextRegistroConfirmarContrasenia"
-            android:textSize="18sp" android:layout_marginStart="20dp" android:layout_marginEnd="20dp"/>
+            android:textSize="18sp" android:layout_marginStart="20dp" android:layout_marginEnd="20dp"
+            android:layout_marginBottom="10dp"/>
     <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -140,7 +144,7 @@
             android:ems="10"
             android:id="@+id/editTextRegistroConfirmarContrasenia"
             app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toTopOf="@+id/buttonRegistroRegistrarse" android:layout_marginBottom="10dp"
+            app:layout_constraintBottom_toTopOf="@+id/buttonRegistroRegistrarse" android:layout_marginBottom="60dp"
             app:layout_constraintHorizontal_bias="0.341" android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"/>
     <Button
@@ -148,6 +152,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content" android:id="@+id/buttonRegistroRegistrarse"
             app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" android:textSize="18sp" android:layout_marginBottom="18dp"
+            app:layout_constraintEnd_toEndOf="parent" android:textSize="18sp" android:layout_marginBottom="120dp"
             android:layout_marginStart="80dp" android:layout_marginEnd="80dp"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

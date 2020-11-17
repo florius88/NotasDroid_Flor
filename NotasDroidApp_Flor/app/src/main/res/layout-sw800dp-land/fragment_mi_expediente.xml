@@ -7,8 +7,8 @@
         android:layout_height="match_parent"
         tools:context=".ui.mi_expediente.MiExpedienteFragment">
     <ImageView
-            android:layout_width="200dp"
-            android:layout_height="200dp" tools:src="@tools:sample/avatars" android:id="@+id/imageView2"
+            android:layout_width="350dp"
+            android:layout_height="350dp" tools:src="@tools:sample/avatars" android:id="@+id/imageView2"
             android:background="#FFFFFF"
             app:srcCompat="@color/colorPrimary"
             app:layout_constraintTop_toTopOf="parent"
@@ -24,20 +24,20 @@
             android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="20dp" android:layout_marginEnd="20dp"
-            app:layout_constraintBottom_toTopOf="@+id/textViewExpedienteEmail" android:layout_marginBottom="10dp"/>
+            app:layout_constraintBottom_toTopOf="@+id/textViewExpedienteEmail" android:layout_marginBottom="35dp"/>
     <TextView
             android:text="Ciclo"
             android:layout_width="0dp"
             android:layout_height="wrap_content" android:id="@+id/textViewExpedienteCiclo"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintBottom_toTopOf="@+id/textViewExpedienteCalificacion"
-            android:layout_marginBottom="10dp" android:textSize="18sp" android:layout_marginStart="20dp"
+            android:layout_marginBottom="35dp" android:textSize="18sp" android:layout_marginStart="20dp"
             app:layout_constraintEnd_toStartOf="@+id/textViewExpedienteCurso" android:layout_marginEnd="20dp"/>
     <TextView
             android:text="Curso"
             android:layout_width="0dp"
             android:layout_height="wrap_content" android:id="@+id/textViewExpedienteCurso"
-            app:layout_constraintBottom_toTopOf="@+id/textViewExpedienteNotaMedia" android:layout_marginBottom="10dp"
+            app:layout_constraintBottom_toTopOf="@+id/textViewExpedienteNotaMedia" android:layout_marginBottom="35dp"
             android:textSize="18sp" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="20dp"
             android:layout_marginStart="20dp" app:layout_constraintStart_toEndOf="@+id/textViewExpedienteCiclo"/>
     <TextView
@@ -46,7 +46,7 @@
             android:layout_height="wrap_content" android:id="@+id/textViewExpedienteCalificacion"
             app:layout_constraintEnd_toStartOf="@+id/textViewExpedienteNotaMedia"
             android:textSize="18sp" app:layout_constraintBottom_toTopOf="@+id/imageButtonExpedienteEmail"
-            android:layout_marginBottom="40dp" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginBottom="55dp" app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintHorizontal_bias="0.409" android:layout_marginStart="20dp"
             android:layout_marginEnd="10dp"/>
     <TextView
@@ -55,7 +55,7 @@
             android:layout_height="wrap_content" android:id="@+id/textViewExpedienteNotaMedia"
             app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="20dp"
             android:textSize="18sp" app:layout_constraintBottom_toTopOf="@+id/imageButtonExpedienteInstagram"
-            android:layout_marginBottom="40dp"
+            android:layout_marginBottom="55dp"
             app:layout_constraintStart_toEndOf="@+id/textViewExpedienteCalificacion" android:layout_marginStart="10dp"/>
     <ImageButton
             android:src="@android:drawable/ic_dialog_email"
@@ -63,7 +63,7 @@
             android:layout_height="59dp" android:id="@+id/imageButtonExpedienteEmail"
             app:layout_constraintEnd_toStartOf="@+id/imageButtonExpedienteTwitter"
             app:layout_constraintBottom_toBottomOf="parent" android:layout_marginEnd="10dp"
-            android:layout_marginBottom="44dp" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginBottom="55dp" app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="40dp"/>
     <ImageButton
             android:src="@android:drawable/btn_star_big_on"
@@ -71,14 +71,14 @@
             android:layout_height="59dp" android:id="@+id/imageButtonExpedienteTwitter"
             app:layout_constraintEnd_toStartOf="@+id/imageButtonExpedienteFacebook"
             app:layout_constraintBottom_toBottomOf="parent" android:layout_marginEnd="10dp"
-            android:layout_marginBottom="44dp" android:layout_marginStart="10dp"
+            android:layout_marginBottom="55dp" android:layout_marginStart="10dp"
             app:layout_constraintStart_toEndOf="@+id/imageButtonExpedienteEmail"/>
     <ImageButton
             android:src="@drawable/ic_launcher_foreground"
             android:layout_width="59dp"
             android:layout_height="59dp" android:id="@+id/imageButtonExpedienteFacebook"
             app:layout_constraintEnd_toStartOf="@+id/imageButtonExpedienteInstagram"
-            app:layout_constraintBottom_toBottomOf="parent" android:layout_marginBottom="44dp"
+            app:layout_constraintBottom_toBottomOf="parent" android:layout_marginBottom="55dp"
             android:layout_marginEnd="10dp" android:layout_marginStart="10dp"
             app:layout_constraintStart_toEndOf="@+id/imageButtonExpedienteTwitter"/>
     <ImageButton
@@ -86,7 +86,7 @@
             android:layout_width="59dp"
             android:layout_height="59dp" android:id="@+id/imageButtonExpedienteInstagram"
             app:layout_constraintBottom_toBottomOf="parent"
-            android:layout_marginBottom="44dp" app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginBottom="55dp" app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginEnd="40dp" android:layout_marginStart="10dp"
             app:layout_constraintStart_toEndOf="@+id/imageButtonExpedienteFacebook"/>
     <TextView
@@ -97,5 +97,5 @@
             android:textSize="18sp" app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintBottom_toTopOf="@+id/textViewExpedienteCiclo"
             app:layout_constraintHorizontal_bias="1.0"
-            android:layout_marginStart="20dp" android:layout_marginEnd="20dp" android:layout_marginBottom="10dp"/>
+            android:layout_marginStart="20dp" android:layout_marginEnd="20dp" android:layout_marginBottom="35dp"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -33,8 +33,8 @@
     <string name="registro_contrasenia">"Contraseña"</string>
     <string name="registro_confirmarContrasenia">"Confirmar contraseña"</string>
     <string name="registro_foto">"Foto"</string>
-    <string name="registro_hacerFoto">"Hacer Foto"</string>
-    <string name="registro_seleccionarFoto">"Seleccionar Foto"</string>
+    <string name="registro_hacerFoto">"C�mara"</string>
+    <string name="registro_seleccionarFoto">"Seleccionar"</string>
     <string name="registro_ciclo">"Ciclo"</string>
     <string name="registro_curso">"Curso"</string>
     <string name="registro_registrarse">"Registrarse"</string>

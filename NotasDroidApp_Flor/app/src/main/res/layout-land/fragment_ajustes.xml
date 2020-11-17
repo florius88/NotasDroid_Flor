@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.ajustes.AjustesFragment">
+    <TextView
+            android:text="@string/ajustes_actualizarInfo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:id="@+id/textViewAjustesInformacion"
+            android:textSize="24sp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            app:layout_constraintBottom_toTopOf="@+id/editTextAjustesNombre" android:textAlignment="center"
+            app:layout_constraintHorizontal_bias="0.0" app:layout_constraintVertical_bias="1.0"/>
+    <TextView
+            android:text="@string/registro_nombre"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/textViewAjustesNombre"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="20dp"
+            app:layout_constraintEnd_toStartOf="@+id/editTextAjustesNombre"
+            android:layout_marginEnd="8dp" app:layout_constraintBottom_toTopOf="@+id/textVieAjustesEmail"
+            android:layout_marginBottom="20dp"/>
+    <EditText
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:ems="10"
+            android:id="@+id/editTextAjustesNombre"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="20dp" android:layout_marginStart="8dp"
+            app:layout_constraintStart_toEndOf="@+id/textViewAjustesNombre"
+            app:layout_constraintBottom_toTopOf="@+id/editTextAjustesEmail"/>
+    <TextView
+            android:text="@string/registro_email"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/textVieAjustesEmail"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="20dp"
+            app:layout_constraintEnd_toStartOf="@+id/editTextAjustesEmail"
+            android:layout_marginEnd="8dp" app:layout_constraintHorizontal_bias="0.349"
+            app:layout_constraintBottom_toTopOf="@+id/textViewAjustesFoto" android:layout_marginBottom="24dp"/>
+    <EditText
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:inputType="textEmailAddress"
+            android:ems="10"
+            android:id="@+id/editTextAjustesEmail"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="20dp"
+            android:layout_marginStart="8dp" app:layout_constraintStart_toEndOf="@+id/textVieAjustesEmail"
+            app:layout_constraintBottom_toTopOf="@+id/buttonAjustesHacerFoto"/>
+    <TextView
+            android:text="@string/registro_foto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/textViewAjustesFoto"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="parent"
+            android:textAlignment="center"
+            app:layout_constraintEnd_toStartOf="@+id/buttonAjustesHacerFoto"
+            app:layout_constraintHorizontal_bias="0.516" android:layout_marginStart="20dp"
+            android:layout_marginEnd="8dp" app:layout_constraintBottom_toTopOf="@+id/textViewAjustesCiclo"
+            android:layout_marginBottom="10dp"/>
+    <Button
+            android:text="@string/registro_hacerFoto"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" android:id="@+id/buttonAjustesHacerFoto"
+            android:textSize="18sp"
+            android:layout_marginStart="8dp"
+            app:layout_constraintStart_toEndOf="@+id/textViewAjustesFoto"
+            app:layout_constraintEnd_toStartOf="@+id/buttonAjustesSeleccionarFoto" android:layout_marginEnd="8dp"
+            app:layout_constraintBottom_toTopOf="@+id/spinnerAjustesCiclo"/>
+    <Button
+            android:text="@string/registro_seleccionarFoto"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" android:id="@+id/buttonAjustesSeleccionarFoto"
+            android:textSize="18sp" app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="20dp"
+            android:layout_marginStart="8dp"
+            app:layout_constraintStart_toEndOf="@+id/buttonAjustesHacerFoto" app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintBottom_toTopOf="@+id/spinnerAjustesCurso"/>
+    <TextView
+            android:text="@string/registro_ciclo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/textViewAjustesCiclo"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="20dp"
+            app:layout_constraintEnd_toStartOf="@+id/spinnerAjustesCiclo" android:layout_marginEnd="8dp"
+            app:layout_constraintBottom_toTopOf="@+id/textViewAjustesContrasenia" android:layout_marginBottom="10dp"/>
+    <Spinner
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" android:id="@+id/spinnerAjustesCurso"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="20dp"
+            android:layout_marginStart="8dp"
+            app:layout_constraintStart_toEndOf="@+id/textViewAjustesCurso"
+            app:layout_constraintBottom_toTopOf="@+id/editTextAjustesConfirmarContrasenia"/>
+    <TextView
+            android:text="@string/registro_curso"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/textViewAjustesCurso"
+            android:textSize="18sp"
+            android:layout_marginStart="8dp"
+            app:layout_constraintStart_toEndOf="@+id/spinnerAjustesCiclo"
+            app:layout_constraintEnd_toStartOf="@+id/spinnerAjustesCurso" android:layout_marginEnd="8dp"
+            app:layout_constraintBottom_toTopOf="@+id/textViewAjustesConfirmarContrasenia"
+            android:layout_marginBottom="10dp"/>
+    <Spinner
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" android:id="@+id/spinnerAjustesCiclo"
+            android:layout_marginStart="8dp"
+            app:layout_constraintStart_toEndOf="@+id/textViewAjustesCiclo"
+            app:layout_constraintEnd_toStartOf="@+id/textViewAjustesCurso" android:layout_marginEnd="8dp"
+            app:layout_constraintBottom_toTopOf="@+id/editTextAjustesContrasenia"/>
+    <TextView
+            android:text="@string/registro_contrasenia"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/textViewAjustesContrasenia"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="20dp"
+            app:layout_constraintEnd_toStartOf="@+id/editTextAjustesContrasenia"
+            android:layout_marginEnd="8dp" app:layout_constraintBottom_toTopOf="@+id/buttonAjustesActualizar"
+            android:layout_marginBottom="10dp"/>
+    <EditText
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:ems="10"
+            android:id="@+id/editTextAjustesContrasenia"
+            android:layout_marginStart="8dp"
+            app:layout_constraintStart_toEndOf="@+id/textViewAjustesContrasenia"
+            app:layout_constraintBottom_toTopOf="@+id/buttonAjustesActualizar"
+            app:layout_constraintEnd_toStartOf="@+id/textViewAjustesConfirmarContrasenia"
+            android:layout_marginEnd="8dp"/>
+    <TextView
+            android:text="@string/registro_confirmarContrasenia"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/textViewAjustesConfirmarContrasenia"
+            android:textSize="18sp"
+            app:layout_constraintStart_toEndOf="@+id/editTextAjustesContrasenia"
+            app:layout_constraintBottom_toTopOf="@+id/buttonAjustesActualizar" android:layout_marginBottom="10dp"
+            app:layout_constraintEnd_toStartOf="@+id/editTextAjustesConfirmarContrasenia"
+            android:layout_marginEnd="8dp" android:layout_marginStart="8dp"/>
+    <EditText
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:ems="10"
+            android:id="@+id/editTextAjustesConfirmarContrasenia"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/buttonAjustesActualizar"
+            android:layout_marginEnd="20dp"
+            app:layout_constraintStart_toEndOf="@+id/textViewAjustesConfirmarContrasenia"
+            app:layout_constraintHorizontal_bias="1.0" android:layout_marginStart="8dp"/>
+    <Button
+            android:text="@string/ajustes_actualizar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:id="@+id/buttonAjustesActualizar"
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintHorizontal_bias="0.498"
+            android:layout_marginBottom="5dp" android:textSize="18sp" android:layout_marginStart="80dp"
+            android:layout_marginEnd="80dp"/>
+</androidx.constraintlayout.widget.ConstraintLayout>
