@@ -1,0 +1,49 @@
+<resources>
+    <string name="app_name">NotasDroidApp_Flor</string>
+    <string name="title_activity_login">LoginActivity</string>
+
+    <!-- Activity Login -->
+    <string name="login_email">"Email"</string>
+    <string name="login_password">"Contraseña"</string>
+    <string name="login_entrar">"Entrar"</string>
+    <string name="login_registrarse">"Registrarse"</string>
+
+    <!-- Activity Principal -->
+    <string name="title_activity_principal">PrincipalActivity</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+
+    <string name="action_exportar">Exportar</string>
+    <string name="action_importar">Importar</string>
+
+    <string name="menu_inicio">Inicio</string>
+    <string name="menu_miMatricula">Mi Matrícula</string>
+    <string name="menu_miExpediente">Mi Expediente</string>
+    <string name="menu_ajustes">Ajustes</string>
+    <string name="menu_salir">Salir</string>
+
+
+    <!-- Activity Registro -->
+    <string name="registro_registro">"Registro"</string>
+    <string name="registro_nombre">"Nombre"</string>
+    <string name="registro_email">"Email"</string>
+    <string name="registro_contrasenia">"Contraseña"</string>
+    <string name="registro_confirmarContrasenia">"Confirmar contraseña"</string>
+    <string name="registro_foto">"Foto"</string>
+    <string name="registro_hacerFoto">"Hacer Foto"</string>
+    <string name="registro_seleccionarFoto">"Seleccionar Foto"</string>
+    <string name="registro_ciclo">"Ciclo"</string>
+    <string name="registro_curso">"Curso"</string>
+    <string name="registro_registrarse">"Registrarse"</string>
+
+    <!-- Fragment Mi Matricula -->
+    <string name="matricula_filtro">"Filtrar"</string>
+
+    <!-- Fragment Ajustes -->
+    <string name="ajustes_actualizar">"Actualizar"</string>
+    <string name="ajustes_actualizarInfo">"Actualizar Información"</string>
+
+</resources>

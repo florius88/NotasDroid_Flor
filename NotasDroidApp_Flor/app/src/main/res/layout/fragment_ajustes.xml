@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.ajustes.AjustesFragment">
+    <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="textEmailAddress"
+            android:ems="10"
+            android:id="@+id/editTextAjustesEmail"
+            tools:layout_editor_absoluteX="60dp" tools:layout_editor_absoluteY="187dp"/>
+    <Button
+            android:text="@string/ajustes_actualizar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/buttonAjustesActualizar"
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintHorizontal_bias="0.498"
+            android:layout_marginBottom="44dp"/>
+    <Spinner
+            android:layout_width="129dp"
+            android:layout_height="39dp" android:id="@+id/spinnerAjustesCurso"
+            tools:layout_editor_absoluteY="382dp" app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="32dp"/>
+    <EditText
+            android:layout_width="254dp"
+            android:layout_height="39dp"
+            android:inputType="textPersonName"
+            android:ems="10"
+            android:id="@+id/editTextAjustesNombre"
+            tools:layout_editor_absoluteY="99dp" tools:layout_editor_absoluteX="60dp"/>
+    <TextView
+            android:text="@string/registro_email"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/textVieAjustesEmail"
+            tools:layout_editor_absoluteX="59dp" tools:layout_editor_absoluteY="159dp"/>
+    <TextView
+            android:text="@string/registro_nombre"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/textViewAjustesNombre"
+            android:textSize="18sp"
+            tools:layout_editor_absoluteX="60dp" tools:layout_editor_absoluteY="64dp"/>
+    <TextView
+            android:text="@string/registro_ciclo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/textViewAjustesCiclo"
+            tools:layout_editor_absoluteY="347dp" tools:layout_editor_absoluteX="62dp"/>
+    <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:ems="10"
+            android:id="@+id/editTextAjustesContrasenia"
+            tools:layout_editor_absoluteX="62dp" tools:layout_editor_absoluteY="471dp"/>
+    <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:ems="10"
+            android:id="@+id/editTextAjustesConfirmarContrasenia"
+            tools:layout_editor_absoluteX="62dp" tools:layout_editor_absoluteY="567dp"/>
+    <TextView
+            android:text="@string/registro_contrasenia"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/textViewAjustesContrasenia"
+            tools:layout_editor_absoluteX="62dp" tools:layout_editor_absoluteY="440dp"/>
+    <TextView
+            android:text="@string/registro_confirmarContrasenia"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/textViewAjustesConfirmarContrasenia"
+            tools:layout_editor_absoluteX="61dp" tools:layout_editor_absoluteY="532dp"/>
+    <TextView
+            android:text="@string/ajustes_actualizarInfo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/textViewAjustesInformacion"
+            android:textSize="30sp"
+            tools:layout_editor_absoluteX="59dp" tools:layout_editor_absoluteY="16dp"/>
+    <Button
+            android:text="@string/registro_seleccionarFoto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/buttonAjustesSeleccionarFoto"
+            tools:layout_editor_absoluteX="207dp" tools:layout_editor_absoluteY="286dp"/>
+    <TextView
+            android:text="@string/registro_foto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/textViewAjustesFoto"
+            tools:layout_editor_absoluteX="60dp" tools:layout_editor_absoluteY="247dp"/>
+    <TextView
+            android:text="@string/registro_curso"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/textViewAjustesCurso"
+            tools:layout_editor_absoluteX="247dp" tools:layout_editor_absoluteY="347dp"/>
+    <Spinner
+            android:layout_width="167dp"
+            android:layout_height="37dp" android:id="@+id/spinnerAjustesCiclo"
+            tools:layout_editor_absoluteY="382dp" tools:layout_editor_absoluteX="60dp"/>
+    <Button
+            android:text="@string/registro_hacerFoto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/buttonAjustesHacerFoto"
+            tools:layout_editor_absoluteY="286dp" tools:layout_editor_absoluteX="59dp"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

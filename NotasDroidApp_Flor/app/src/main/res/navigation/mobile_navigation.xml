@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:id="@+id/mobile_navigation"
+            app:startDestination="@+id/nav_inicio">
+
+    <fragment
+            android:id="@+id/nav_inicio"
+            android:name="android.flor.notasdroidapp_flor.ui.inicio.InicioFragment"
+            android:label="@string/menu_inicio"
+            tools:layout="@layout/fragment_inicio"/>
+
+    <fragment
+            android:id="@+id/nav_miMatricula"
+            android:name="android.flor.notasdroidapp_flor.ui.mi_matricula.MiMatriculaFragment"
+            android:label="@string/menu_miMatricula"
+            tools:layout="@layout/fragment_mi_matricula"/>
+
+    <fragment
+            android:id="@+id/nav_miExpediente"
+            android:name="android.flor.notasdroidapp_flor.ui.mi_expediente.MiExpedienteFragment"
+            android:label="@string/menu_miExpediente"
+            tools:layout="@layout/fragment_mi_expediente"/>
+
+    <fragment
+            android:id="@+id/nav_ajustes"
+            android:name="android.flor.notasdroidapp_flor.ui.ajustes.AjustesFragment"
+            android:label="@string/menu_ajustes"
+            tools:layout="@layout/fragment_ajustes"/>
+
+</navigation>
