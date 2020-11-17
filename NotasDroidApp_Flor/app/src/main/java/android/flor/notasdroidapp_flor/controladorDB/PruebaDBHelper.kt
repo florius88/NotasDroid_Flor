@@ -7,12 +7,13 @@ import android.database.sqlite.SQLiteConstraintException
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteException
 import android.database.sqlite.SQLiteOpenHelper
-import android.flor.notasdroidapp_flor.modelo.Ciclo
-import android.flor.notasdroidapp_flor.modeloDAO.DBCiclo
+import android.flor.notasdroidapp_flor.modelo.Ciclo_Asignatura
+import android.flor.notasdroidapp_flor.modelo.Prueba
+import android.flor.notasdroidapp_flor.modeloDAO.DBPrueba
 
 import java.util.ArrayList
 
-class CicloDBHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, null, DATABASE_VERSION) {
+class PruebaDBHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, null, DATABASE_VERSION) {
 
     companion object {
         // If you change the database schema, you must increment the database version.
@@ -20,13 +21,17 @@ class CicloDBHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME,
         val DATABASE_NAME = "notas_droid_flor.db"
 
         private val SQL_CREATE_ENTRIES =
-            "CREATE TABLE " + DBCiclo.CicloDAO.TABLE_NAME + " (" +
-                    DBCiclo.CicloDAO.COLUMN_ID_CICLO + " INTEGER PRIMARY KEY AUTOINCREMENT," +
-                    DBCiclo.CicloDAO.COLUMN_NOMBRE + " TEXT," +
-                    DBCiclo.CicloDAO.COLUMN_SIGLAS + " TEXT," +
-                    DBCiclo.CicloDAO.COLUMN_CURSO + " INTEGER)"
+            "CREATE TABLE " + DBPrueba.PruebaDAO.TABLE_NAME + " (" +
+                    DBPrueba.PruebaDAO.COLUMN_ID_PRUEBA + " INTEGER PRIMARY KEY AUTOINCREMENT," +
+                    DBPrueba.PruebaDAO.COLUMN_ID_ALUMNO + " INTEGER," +
+                    DBPrueba.PruebaDAO.COLUMN_ID_ASIGNATURA + " INTEGER," +
+                    DBPrueba.PruebaDAO.COLUMN_TITULO + " TEXT," +
+                    DBPrueba.PruebaDAO.COLUMN_DESCRIPCION + " TEXT," +
+                    DBPrueba.PruebaDAO.COLUMN_FECHA + " TEXT," +
+                    DBPrueba.PruebaDAO.COLUMN_REALIZADA + " BOOLEAN," +
+                    DBPrueba.PruebaDAO.COLUMN_CALIFICACION + " REAL)"
 
-        private val SQL_DELETE_ENTRIES = "DROP TABLE IF EXISTS " + DBCiclo.CicloDAO.TABLE_NAME
+        private val SQL_DELETE_ENTRIES = "DROP TABLE IF EXISTS " + DBPrueba.PruebaDAO.TABLE_NAME
     }
 
     override fun onCreate(db: SQLiteDatabase) {
@@ -45,90 +50,110 @@ class CicloDBHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME,
     }
 
     /**
-     * Funcion para insertar un Ciclo en la BDD
+     * Funcion para insertar ua Prueba en la BDD
      */
     @Throws(SQLiteConstraintException::class)
-    fun insertCiclo(ciclo: Ciclo): Boolean {
+    fun insertPrueba(prueba: Prueba): Boolean {
         // Obtiene la BD en modo escritura
         val db = writableDatabase
 
         // Inserta un nuevo Alumno
         val values = ContentValues()
-        // values.put(DBCiclo.CicloDAO.COLUMN_ID_CICLO, ciclo.idciclo) ------ Se supone que se incrementa solo
-        values.put(DBCiclo.CicloDAO.COLUMN_NOMBRE, ciclo.nombre)
-        values.put(DBCiclo.CicloDAO.COLUMN_SIGLAS, ciclo.siglas)
-        values.put(DBCiclo.CicloDAO.COLUMN_CURSO, ciclo.curso)
+        // values.put(DBPrueba.PruebaDAO.COLUMN_ID_PRUEBA, prueba.idprueba) ------ Se supone que se incrementa solo
+        values.put(DBPrueba.PruebaDAO.COLUMN_ID_ALUMNO, prueba.idalumno)
+        values.put(DBPrueba.PruebaDAO.COLUMN_ID_ASIGNATURA, prueba.idasignatura)
+        values.put(DBPrueba.PruebaDAO.COLUMN_TITULO, prueba.titulo)
+        values.put(DBPrueba.PruebaDAO.COLUMN_DESCRIPCION, prueba.descripcion)
+        values.put(DBPrueba.PruebaDAO.COLUMN_FECHA, prueba.fecha)
+        values.put(DBPrueba.PruebaDAO.COLUMN_REALIZADA, prueba.realizada)
+        values.put(DBPrueba.PruebaDAO.COLUMN_CALIFICACION, prueba.calificacion)
 
         // Inserta el alumno nuevo devolviendo la primary key
-        val nuevoCicloId = db.insert(DBCiclo.CicloDAO.TABLE_NAME, null, values)
+        val nuevaPruebaId = db.insert(DBPrueba.PruebaDAO.TABLE_NAME, null, values)
 
         return true
     }
 
     /**
-     * Funcion que devuelve un Ciclo en una lista a partir de un "idciclo" pasado por parametro
+     * Funcion que devuelve una Prueba en una lista a partir de un "idprueba" pasado por parametro
      */
-    fun selectCiclo(idciclo: Int): ArrayList<Ciclo> {
-        val ciclos = ArrayList<Ciclo>()
+    fun selectPrueba(idprueba: Int): ArrayList<Prueba> {
+        val pruebas = ArrayList<Prueba>()
         val db = writableDatabase
         var cursor: Cursor? = null
         try {
             cursor = db.rawQuery(
-                "select * from " + DBCiclo.CicloDAO.TABLE_NAME + " WHERE " + DBCiclo.CicloDAO.COLUMN_ID_CICLO + "='" + idciclo + "'", null)
+                "select * from " + DBPrueba.PruebaDAO.TABLE_NAME + " WHERE " + DBPrueba.PruebaDAO.COLUMN_ID_PRUEBA + "='" + idprueba + "'", null)
         } catch (e: SQLiteException) {
             // if table not yet present, create it
             db.execSQL(SQL_CREATE_ENTRIES)
             return ArrayList()
         }
 
-        var nombre: String
-        var siglas: String
-        var curso: Int
+        var idalumno: Int
+        var idasignatura: Int
+        var titulo: String
+        var descripcion: String
+        var fecha: String
+        var realizada: Int
+        var calificacion: Double
 
         if (cursor!!.moveToFirst()) {
             while (cursor.isAfterLast == false) {
-                nombre = cursor.getString(cursor.getColumnIndex(DBCiclo.CicloDAO.COLUMN_NOMBRE))
-                siglas = cursor.getString(cursor.getColumnIndex(DBCiclo.CicloDAO.COLUMN_SIGLAS))
-                curso = cursor.getInt(cursor.getColumnIndex(DBCiclo.CicloDAO.COLUMN_CURSO))
+                idalumno = cursor.getInt(cursor.getColumnIndex(DBPrueba.PruebaDAO.COLUMN_ID_ALUMNO))
+                idasignatura = cursor.getInt(cursor.getColumnIndex(DBPrueba.PruebaDAO.COLUMN_ID_ASIGNATURA))
+                titulo = cursor.getString(cursor.getColumnIndex(DBPrueba.PruebaDAO.COLUMN_TITULO))
+                descripcion = cursor.getString(cursor.getColumnIndex(DBPrueba.PruebaDAO.COLUMN_DESCRIPCION))
+                fecha = cursor.getString(cursor.getColumnIndex(DBPrueba.PruebaDAO.COLUMN_FECHA))
+                realizada = cursor.getInt(cursor.getColumnIndex(DBPrueba.PruebaDAO.COLUMN_REALIZADA))
+                calificacion = cursor.getDouble(cursor.getColumnIndex(DBPrueba.PruebaDAO.COLUMN_CALIFICACION))
 
-                ciclos.add(Ciclo(idciclo, nombre, siglas, curso))
+                pruebas.add(Prueba(idprueba, idalumno, idasignatura, titulo, descripcion, fecha, realizada, calificacion))
                 cursor.moveToNext()
             }
         }
-        return ciclos
+        return pruebas
     }
 
     /**
-     * Funcion que devuelve todos los Ciclos de la BDD
+     * Funcion que devuelve todas las Pruebas de la BDD
      */
-    fun selectAllAsignaturas(): ArrayList<Ciclo> {
-        val ciclos = ArrayList<Ciclo>()
+    fun selectAllPruebas(): ArrayList<Prueba> {
+        val pruebas = ArrayList<Prueba>()
         val db = writableDatabase
         var cursor: Cursor? = null
         try {
-            cursor = db.rawQuery("select * from " + DBCiclo.CicloDAO.TABLE_NAME, null)
+            cursor = db.rawQuery("select * from " + DBPrueba.PruebaDAO.TABLE_NAME, null)
         } catch (e: SQLiteException) {
             db.execSQL(SQL_CREATE_ENTRIES)
             return ArrayList()
         }
 
-        var idciclo: Int
-        var nombre: String
-        var siglas: String
-        var curso: Int
+        var idprueba: Int
+        var idalumno: Int
+        var idasignatura: Int
+        var titulo: String
+        var descripcion: String
+        var fecha: String
+        var realizada: Int
+        var calificacion: Double
 
         if (cursor!!.moveToFirst()) {
             while (cursor.isAfterLast == false) {
-                idciclo = cursor.getInt(cursor.getColumnIndex(DBCiclo.CicloDAO.COLUMN_ID_CICLO))
-                nombre = cursor.getString(cursor.getColumnIndex(DBCiclo.CicloDAO.COLUMN_NOMBRE))
-                siglas = cursor.getString(cursor.getColumnIndex(DBCiclo.CicloDAO.COLUMN_SIGLAS))
-                curso = cursor.getInt(cursor.getColumnIndex(DBCiclo.CicloDAO.COLUMN_CURSO))
+                idprueba = cursor.getInt(cursor.getColumnIndex(DBPrueba.PruebaDAO.COLUMN_ID_PRUEBA))
+                idalumno = cursor.getInt(cursor.getColumnIndex(DBPrueba.PruebaDAO.COLUMN_ID_ALUMNO))
+                idasignatura = cursor.getInt(cursor.getColumnIndex(DBPrueba.PruebaDAO.COLUMN_ID_ASIGNATURA))
+                titulo = cursor.getString(cursor.getColumnIndex(DBPrueba.PruebaDAO.COLUMN_TITULO))
+                descripcion = cursor.getString(cursor.getColumnIndex(DBPrueba.PruebaDAO.COLUMN_DESCRIPCION))
+                fecha = cursor.getString(cursor.getColumnIndex(DBPrueba.PruebaDAO.COLUMN_FECHA))
+                realizada = cursor.getInt(cursor.getColumnIndex(DBPrueba.PruebaDAO.COLUMN_REALIZADA))
+                calificacion = cursor.getDouble(cursor.getColumnIndex(DBPrueba.PruebaDAO.COLUMN_CALIFICACION))
 
-                ciclos.add(Ciclo(idciclo, nombre, siglas, curso))
+                pruebas.add(Prueba(idprueba, idalumno, idasignatura, titulo, descripcion, fecha, realizada, calificacion))
                 cursor.moveToNext()
             }
         }
-        return ciclos
+        return pruebas
     }
 
 }

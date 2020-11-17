@@ -1,4 +1,4 @@
-package android.flor.notasdroidapp_flor.modelo
+package android.flor.notasdroidapp_flor.modeloDAO
 
 import android.provider.BaseColumns
 

@@ -19,7 +19,6 @@ nombre VARCHAR(200) NOT NULL,
 email VARCHAR(200) NOT NULL,
 contrasenia VARCHAR(200) NOT NULL,
 ciclo int NOT NULL,
-foto LONGBLOB,
 PRIMARY KEY (idalumno),
 FOREIGN KEY (ciclo) REFERENCES ciclos(idciclo)
 );

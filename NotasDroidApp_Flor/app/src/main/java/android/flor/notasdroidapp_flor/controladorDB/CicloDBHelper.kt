@@ -7,12 +7,13 @@ import android.database.sqlite.SQLiteConstraintException
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteException
 import android.database.sqlite.SQLiteOpenHelper
-import android.flor.notasdroidapp_flor.modelo.Asignatura
-import android.flor.notasdroidapp_flor.modeloDAO.DBAsignatura
+import android.flor.notasdroidapp_flor.modelo.Ciclo
+import android.flor.notasdroidapp_flor.modelo.Ciclo_Asignatura
+import android.flor.notasdroidapp_flor.modeloDAO.DBCiclo
 
 import java.util.ArrayList
 
-class AsignaturaDBHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, null, DATABASE_VERSION) {
+class CicloDBHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, null, DATABASE_VERSION) {
 
     companion object {
         // If you change the database schema, you must increment the database version.
@@ -20,12 +21,13 @@ class AsignaturaDBHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_
         val DATABASE_NAME = "notas_droid_flor.db"
 
         private val SQL_CREATE_ENTRIES =
-            "CREATE TABLE " + DBAsignatura.AsignaturaDAO.TABLE_NAME + " (" +
-                    DBAsignatura.AsignaturaDAO.COLUMN_ID_ASIGNATURA + " INTEGER PRIMARY KEY AUTOINCREMENT," +
-                    DBAsignatura.AsignaturaDAO.COLUMN_NOMBRE + " TEXT," +
-                    DBAsignatura.AsignaturaDAO.COLUMN_SIGLAS + " TEXT)"
+            "CREATE TABLE " + DBCiclo.CicloDAO.TABLE_NAME + " (" +
+                    DBCiclo.CicloDAO.COLUMN_ID_CICLO + " INTEGER PRIMARY KEY AUTOINCREMENT," +
+                    DBCiclo.CicloDAO.COLUMN_NOMBRE + " TEXT," +
+                    DBCiclo.CicloDAO.COLUMN_SIGLAS + " TEXT," +
+                    DBCiclo.CicloDAO.COLUMN_CURSO + " INTEGER)"
 
-        private val SQL_DELETE_ENTRIES = "DROP TABLE IF EXISTS " + DBAsignatura.AsignaturaDAO.TABLE_NAME
+        private val SQL_DELETE_ENTRIES = "DROP TABLE IF EXISTS " + DBCiclo.CicloDAO.TABLE_NAME
     }
 
     override fun onCreate(db: SQLiteDatabase) {
@@ -44,36 +46,36 @@ class AsignaturaDBHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_
     }
 
     /**
-     * Funcion para insertar una Asignatura en la BDD
+     * Funcion para insertar un Ciclo en la BDD
      */
     @Throws(SQLiteConstraintException::class)
-    fun insertAsignatura(asignatura: Asignatura): Boolean {
+    fun insertCiclo(ciclo: Ciclo): Boolean {
         // Obtiene la BD en modo escritura
         val db = writableDatabase
 
         // Inserta un nuevo Alumno
         val values = ContentValues()
-        // values.put(DBAsignatura.AsignaturaDAO.COLUMN_ID_ASIGNATURA, asignatura.idasignatura) ------ Se supone que se incrementa solo
-        values.put(DBAsignatura.AsignaturaDAO.COLUMN_NOMBRE, asignatura.nombre)
-        values.put(DBAsignatura.AsignaturaDAO.COLUMN_SIGLAS, asignatura.siglas)
+        // values.put(DBCiclo.CicloDAO.COLUMN_ID_CICLO, ciclo.idciclo) ------ Se supone que se incrementa solo
+        values.put(DBCiclo.CicloDAO.COLUMN_NOMBRE, ciclo.nombre)
+        values.put(DBCiclo.CicloDAO.COLUMN_SIGLAS, ciclo.siglas)
+        values.put(DBCiclo.CicloDAO.COLUMN_CURSO, ciclo.curso)
 
         // Inserta el alumno nuevo devolviendo la primary key
-        val nuevoaAsignaturaId = db.insert(DBAsignatura.AsignaturaDAO.TABLE_NAME, null, values)
+        val nuevoCicloId = db.insert(DBCiclo.CicloDAO.TABLE_NAME, null, values)
 
         return true
     }
 
     /**
-     * Funcion que devuelve una Asignatura en una lista a partir de un idasignatura pasado por parametro
+     * Funcion que devuelve un Ciclo en una lista a partir de un "idciclo" pasado por parametro
      */
-    fun selectAlumno(idasignatura: Int): ArrayList<Asignatura> {
-        val asignaturas = ArrayList<Asignatura>()
+    fun selectCiclo(idciclo: Int): ArrayList<Ciclo> {
+        val ciclos = ArrayList<Ciclo>()
         val db = writableDatabase
         var cursor: Cursor? = null
         try {
             cursor = db.rawQuery(
-                "select * from " + DBAsignatura.AsignaturaDAO.TABLE_NAME + " WHERE " + DBAsignatura.AsignaturaDAO.COLUMN_ID_ASIGNATURA + "='" + idasignatura + "'",
-                null)
+                "select * from " + DBCiclo.CicloDAO.TABLE_NAME + " WHERE " + DBCiclo.CicloDAO.COLUMN_ID_CICLO + "='" + idciclo + "'", null)
         } catch (e: SQLiteException) {
             // if table not yet present, create it
             db.execSQL(SQL_CREATE_ENTRIES)
@@ -82,48 +84,65 @@ class AsignaturaDBHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_
 
         var nombre: String
         var siglas: String
+        var curso: Int
 
         if (cursor!!.moveToFirst()) {
             while (cursor.isAfterLast == false) {
-                nombre = cursor.getString(cursor.getColumnIndex(DBAsignatura.AsignaturaDAO.COLUMN_NOMBRE))
-                email = cursor.getString(cursor.getColumnIndex(DBAsignatura.AsignaturaDAO.COLUMN_SIGLAS))
+                nombre = cursor.getString(cursor.getColumnIndex(DBCiclo.CicloDAO.COLUMN_NOMBRE))
+                siglas = cursor.getString(cursor.getColumnIndex(DBCiclo.CicloDAO.COLUMN_SIGLAS))
+                curso = cursor.getInt(cursor.getColumnIndex(DBCiclo.CicloDAO.COLUMN_CURSO))
 
-                asignaturas.add(Asignatura(idasignatura, nombre, siglas))
+                ciclos.add(Ciclo(idciclo, nombre, siglas, curso))
                 cursor.moveToNext()
             }
         }
-        return asignaturas
+        return ciclos
     }
 
     /**
-     * Funcion que devuelve todas las Asignaturas de la BDD
+     * Funcion que devuelve todos los Ciclos de la BDD
      */
-    fun selectAllAsignaturas(): ArrayList<Asignatura> {
-        val asignaturas = ArrayList<Asignatura>()
+    fun selectAllCiclos(): ArrayList<Ciclo> {
+        val ciclos = ArrayList<Ciclo>()
         val db = writableDatabase
         var cursor: Cursor? = null
         try {
-            cursor = db.rawQuery("select * from " + DBAsignatura.AsignaturaDAO.TABLE_NAME, null)
+            cursor = db.rawQuery("select * from " + DBCiclo.CicloDAO.TABLE_NAME, null)
         } catch (e: SQLiteException) {
             db.execSQL(SQL_CREATE_ENTRIES)
             return ArrayList()
         }
 
-        var idasignatura: Int
+        var idciclo: Int
         var nombre: String
         var siglas: String
+        var curso: Int
 
         if (cursor!!.moveToFirst()) {
             while (cursor.isAfterLast == false) {
-                idasignatura = cursor.getInt(cursor.getColumnIndex(DBAsignatura.AsignaturaDAO.COLUMN_ID_ASIGNATURA))
-                nombre = cursor.getString(cursor.getColumnIndex(DBAsignatura.AsignaturaDAO.COLUMN_NOMBRE))
-                email = cursor.getString(cursor.getColumnIndex(DBAsignatura.AsignaturaDAO.COLUMN_SIGLAS))
+                idciclo = cursor.getInt(cursor.getColumnIndex(DBCiclo.CicloDAO.COLUMN_ID_CICLO))
+                nombre = cursor.getString(cursor.getColumnIndex(DBCiclo.CicloDAO.COLUMN_NOMBRE))
+                siglas = cursor.getString(cursor.getColumnIndex(DBCiclo.CicloDAO.COLUMN_SIGLAS))
+                curso = cursor.getInt(cursor.getColumnIndex(DBCiclo.CicloDAO.COLUMN_CURSO))
 
-                asignaturas.add(Asignatura(idasignatura, nombre, siglas))
+                ciclos.add(Ciclo(idciclo, nombre, siglas, curso))
                 cursor.moveToNext()
             }
         }
-        return asignaturas
+        return ciclos
     }
 
+    /**
+     * Funcion que inserta los valores necesarios a la tabla Ciclos
+     */
+    fun insertarTodosCiclos(): Unit {
+        if (this.selectAllCiclos().isEmpty()) {
+            insertCiclo(Ciclo(0,"Administración de Sistemas Informáticos en Red","ASIR", 1))
+            insertCiclo(Ciclo(0,"Administración de Sistemas Informáticos en Red","ASIR", 2))
+            insertCiclo(Ciclo(0,"Desarrollo de Aplicaciones Multiplataforma","DAM", 1))
+            insertCiclo(Ciclo(0,"Desarrollo de Aplicaciones Multiplataforma","DAM", 2))
+            insertCiclo(Ciclo(0,"Desarrollo de Aplicaciones Web","DAW", 1))
+            insertCiclo(Ciclo(0,"Desarrollo de Aplicaciones Web","DAW", 2))
+        }
+    }
 }

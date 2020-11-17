@@ -1,10 +1,10 @@
-package android.flor.notasdroidapp_flor.modelo
+package android.flor.notasdroidapp_flor.modeloDAO
 
 import android.provider.BaseColumns
 
 object DBAsignatura {
 
-    class AsignaturaDAO : BaseColumns{
+    class AsignaturaDAO : BaseColumns {
         companion object {
             val TABLE_NAME = "asignaturas"
             val COLUMN_ID_ASIGNATURA = "idasignatura"
