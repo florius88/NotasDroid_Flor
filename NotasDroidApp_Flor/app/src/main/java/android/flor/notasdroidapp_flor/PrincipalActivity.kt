@@ -1,7 +1,9 @@
 package android.flor.notasdroidapp_flor
 
+import android.flor.notasdroidapp_flor.ui.IOnBackPressed
 import android.os.Bundle
 import android.view.Menu
+import android.widget.Toast
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.navigation.NavigationView
@@ -13,6 +15,7 @@ import androidx.navigation.ui.setupWithNavController
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
+import kotlin.system.exitProcess
 
 class PrincipalActivity : AppCompatActivity() {
 
@@ -52,5 +55,20 @@ class PrincipalActivity : AppCompatActivity() {
     override fun onSupportNavigateUp(): Boolean {
         val navController = findNavController(R.id.nav_host_fragment)
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
+    }
+
+    // Funcion que captura el boton de retroceder del movil
+    override fun onBackPressed() {
+        val navHost = supportFragmentManager.findFragmentById(R.id.nav_host_fragment)
+        navHost?.let { navFragment ->
+            navFragment.childFragmentManager.primaryNavigationFragment?.let { fragment ->
+                (fragment as? IOnBackPressed)?.onBackPressed()?.not()?.let { isCanceled: Boolean ->
+                    //Toast.makeText(this, "onBackpressed " + isCanceled, Toast.LENGTH_SHORT).show()
+                    if (!isCanceled) {
+                        super.onBackPressed()
+                    }
+                }
+            }
+        }
     }
 }

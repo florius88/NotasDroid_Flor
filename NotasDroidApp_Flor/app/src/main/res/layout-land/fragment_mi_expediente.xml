@@ -23,7 +23,7 @@
             app:layout_constraintHorizontal_bias="0.77"
             app:layout_constraintBottom_toTopOf="@+id/textViewExpedienteNotaMedia" android:layout_marginBottom="20dp"/>
     <TextView
-            android:text="Calificacion Media"
+            android:text="@string/expediente_calificacion"
             android:layout_width="0dp"
             android:layout_height="wrap_content" android:id="@+id/textViewExpedienteCalificacion"
             android:textSize="18sp" app:layout_constraintBottom_toTopOf="@+id/imageButtonExpedienteEmail"

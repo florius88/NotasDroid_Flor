@@ -41,7 +41,7 @@
             android:textSize="18sp" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="20dp"
             android:layout_marginStart="20dp" app:layout_constraintStart_toEndOf="@+id/textViewExpedienteCiclo"/>
     <TextView
-            android:text="Calificacion Media"
+            android:text="@string/expediente_calificacion"
             android:layout_width="0dp"
             android:layout_height="wrap_content" android:id="@+id/textViewExpedienteCalificacion"
             app:layout_constraintEnd_toStartOf="@+id/textViewExpedienteNotaMedia"

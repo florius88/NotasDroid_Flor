@@ -9,8 +9,9 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import android.flor.notasdroidapp_flor.R
+import android.flor.notasdroidapp_flor.ui.IOnBackPressed
 
-class MiExpedienteFragment : Fragment() {
+class MiExpedienteFragment : Fragment(), IOnBackPressed {
 
     private lateinit var miExpedienteViewModel: MiExpedienteViewModel
 
@@ -27,5 +28,9 @@ class MiExpedienteFragment : Fragment() {
 //            textView.text = it
 //        })
         return root
+    }
+
+    override fun onBackPressed(): Boolean {
+        return true
     }
 }

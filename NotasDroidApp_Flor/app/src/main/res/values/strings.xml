@@ -33,7 +33,7 @@
     <string name="registro_contrasenia">"Contraseña"</string>
     <string name="registro_confirmarContrasenia">"Confirmar contraseña"</string>
     <string name="registro_foto">"Foto"</string>
-    <string name="registro_hacerFoto">"C�mara"</string>
+    <string name="registro_hacerFoto">"Cámara"</string>
     <string name="registro_seleccionarFoto">"Seleccionar"</string>
     <string name="registro_ciclo">"Ciclo"</string>
     <string name="registro_curso">"Curso"</string>
@@ -41,6 +41,9 @@
 
     <!-- Fragment Mi Matricula -->
     <string name="matricula_filtro">"Filtrar"</string>
+
+    <!-- Fragment Mi Expediente -->
+    <string name="expediente_calificacion">"Calificación Media"</string>
 
     <!-- Fragment Ajustes -->
     <string name="ajustes_actualizar">"Actualizar"</string>

@@ -9,8 +9,10 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import android.flor.notasdroidapp_flor.R
+import android.flor.notasdroidapp_flor.ui.IOnBackPressed
+import android.widget.Toast
 
-class AjustesFragment : Fragment() {
+class AjustesFragment : Fragment(), IOnBackPressed {
 
     private lateinit var ajustesViewModel: AjustesViewModel
 
@@ -27,5 +29,9 @@ class AjustesFragment : Fragment() {
 //            textView.text = it
 //        })
         return root
+    }
+
+    override fun onBackPressed(): Boolean {
+        return true
     }
 }

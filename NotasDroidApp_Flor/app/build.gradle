@@ -1,4 +1,3 @@
-<<<<<<< develop
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
@@ -58,8 +57,7 @@ dependencies {
     kapt "androidx.room:room-compiler:$room_version"
 
 }
-|||||||
-=======
+
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
@@ -112,4 +110,4 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 
 }
->>>>>>> Configuración
+
