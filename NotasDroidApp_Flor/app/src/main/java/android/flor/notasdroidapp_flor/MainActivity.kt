@@ -1,17 +1,18 @@
 package android.flor.notasdroidapp_flor
 
 import android.content.Intent
-import android.flor.notasdroidapp_flor.modelo.AppBaseDatos
-import android.flor.notasdroidapp_flor.modelo.Asignatura
-import android.flor.notasdroidapp_flor.modelo.UserModel
-import android.flor.notasdroidapp_flor.modelo.UsersDBHelper
+import android.flor.notasdroidapp_flor.controladorDB.*
+import android.flor.notasdroidapp_flor.modelo.Alumno
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.Observer
 
 class MainActivity : AppCompatActivity() {
-    lateinit var usersDBHelper : UsersDBHelper
+    lateinit var alumnosDBHelper : AlumnoDBHelper
+    lateinit var asigDBHelper : AsignaturaDBHelper
+    lateinit var cicloDBHelper : CicloDBHelper
+    lateinit var relacionDBHelper : Ciclo_AsignaturaDBHelper
+    lateinit var pruebaDBHelper : PruebaDBHelper
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
@@ -24,29 +25,36 @@ class MainActivity : AppCompatActivity() {
         //Validar login
         Toast.makeText(this, "Comprobando Login", Toast.LENGTH_SHORT).show()
 
-//        var listaAsignaturas = emptyList<Asignatura>()
-//
-//        val basedatos = AppBaseDatos.getBasedatos(this)
-//
-//        basedatos.asignatura().obtenerTodas().observe(this, Observer {
-//            listaAsignaturas = it
-//        })
+        // -------------------------------------------------- BBDD ---------------------------------------------------
+        // Tabla Alumnos
+        alumnosDBHelper = AlumnoDBHelper(this)
 
-//        val context = this
-//        val db = DataBaseHandler(context)
-//
-//        val data = db.readData()
+        var nombre = "flor"
+        var email = "String"
+        var contrasenia = "String"
+        var ciclo = 1
+        var result = alumnosDBHelper.insertAlumno(Alumno(0, nombre, email, contrasenia, ciclo))
 
-        usersDBHelper = UsersDBHelper(this)
+        var alumnos = alumnosDBHelper.selectAllAlumnos()
 
-        var userid = "1"
-        var name = "pepe"
-        var age = "30"
-        var result = usersDBHelper.insertUser(UserModel(userid = userid,name = name,age = age))
+        // Tabla Ciclos
+        cicloDBHelper = CicloDBHelper(this)
+        cicloDBHelper.insertarTodosCiclos()
+        var ciclos = cicloDBHelper.selectAllCiclos()
 
-        var users = usersDBHelper.readAllUsers()
+        // Tabla Asignaturas
+        asigDBHelper = AsignaturaDBHelper(this)
+        asigDBHelper.insertarTodasAsignaturas()
+        var asig = asigDBHelper.selectAllAsignaturas()
 
+        // Tabla Ciclo_Asignatura
+        relacionDBHelper = Ciclo_AsignaturaDBHelper(this)
+        relacionDBHelper.insertarTodasRelaciones()
+        var relaciones = relacionDBHelper.selectAllCicloAsignaturas()
 
+        // Tabla Pruebas
+        pruebaDBHelper = PruebaDBHelper(this)
+        var pruebas = pruebaDBHelper.selectAllPruebas()
 
 
         super.onCreate(savedInstanceState)
