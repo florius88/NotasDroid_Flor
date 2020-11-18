@@ -29,4 +29,10 @@
             android:label="@string/menu_ajustes"
             tools:layout="@layout/fragment_ajustes"/>
 
+    <fragment
+            android:id="@+id/nav_salir"
+            android:name="android.flor.notasdroidapp_flor.ui.CerrarSesionFragment"
+            android:label="@string/menu_inicio"
+            tools:layout="@layout/fragment_inicio"/>
+
 </navigation>

@@ -12,6 +12,7 @@ object DBAlumno {
             val COLUMN_EMAIL = "email"
             val COLUMN_CONTRASENIA = "contrasenia"
             val COLUMN_CICLO = "ciclo"
+            val COLUMN_LOGUEADO = "logueado"
         }
     }
 }

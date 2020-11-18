@@ -75,7 +75,9 @@ class CicloDBHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME,
         var cursor: Cursor? = null
         try {
             cursor = db.rawQuery(
-                "select * from " + DBCiclo.CicloDAO.TABLE_NAME + " WHERE " + DBCiclo.CicloDAO.COLUMN_ID_CICLO + "='" + idciclo + "'", null)
+                "select * from " + DBCiclo.CicloDAO.TABLE_NAME + " WHERE " + DBCiclo.CicloDAO.COLUMN_ID_CICLO + "='" + idciclo + "'",
+                null
+            )
         } catch (e: SQLiteException) {
             // if table not yet present, create it
             db.execSQL(SQL_CREATE_ENTRIES)
@@ -133,16 +135,81 @@ class CicloDBHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME,
     }
 
     /**
+     * Funcion que devuelve un Ciclo en una lista a partir de un "curso" pasado por parametro
+     * Usado para rellenar el Spinner del Registro
+     */
+    fun selectCicloByCurso(curso: Int): ArrayList<String> {
+        val ciclos = ArrayList<String>()
+        val db = writableDatabase
+        var cursor: Cursor? = null
+        try {
+            cursor = db.rawQuery(
+                "select * from " + DBCiclo.CicloDAO.TABLE_NAME + " WHERE " + DBCiclo.CicloDAO.COLUMN_CURSO + "='" + curso + "'",
+                null
+            )
+        } catch (e: SQLiteException) {
+            // if table not yet present, create it
+            db.execSQL(SQL_CREATE_ENTRIES)
+            return ArrayList()
+        }
+
+        var nombre: String
+
+        if (cursor!!.moveToFirst()) {
+            while (cursor.isAfterLast == false) {
+                nombre = cursor.getString(cursor.getColumnIndex(DBCiclo.CicloDAO.COLUMN_NOMBRE))
+
+                ciclos.add(nombre)
+                cursor.moveToNext()
+            }
+        }
+        return ciclos
+    }
+
+    /**
+     * Funcion que devuelve un Ciclo en una lista a partir de un "curso" y un "nombre" pasados por parametro
+     */
+    fun selectCicloByCursoNombre(nombre: String, curso: Int): ArrayList<Ciclo>{
+
+        val ciclos = ArrayList<Ciclo>()
+        val db = writableDatabase
+        var cursor: Cursor? = null
+        try {
+            cursor = db.rawQuery(
+                "select * from " + DBCiclo.CicloDAO.TABLE_NAME + " WHERE " + DBCiclo.CicloDAO.COLUMN_CURSO + "='" + curso + "' AND "
+                        + DBCiclo.CicloDAO.COLUMN_NOMBRE + "='" + nombre + "'", null)
+        } catch (e: SQLiteException) {
+            // if table not yet present, create it
+            db.execSQL(SQL_CREATE_ENTRIES)
+            return ArrayList()
+        }
+
+        var idciclo: Int
+        var siglas: String
+
+        if (cursor!!.moveToFirst()) {
+            while (cursor.isAfterLast == false) {
+                idciclo = cursor.getInt(cursor.getColumnIndex(DBCiclo.CicloDAO.COLUMN_ID_CICLO))
+                siglas = cursor.getString(cursor.getColumnIndex(DBCiclo.CicloDAO.COLUMN_SIGLAS))
+
+                ciclos.add(Ciclo(idciclo, nombre, siglas, curso))
+                cursor.moveToNext()
+            }
+        }
+        return ciclos
+    }
+
+    /**
      * Funcion que inserta los valores necesarios a la tabla Ciclos
      */
     fun insertarTodosCiclos(): Unit {
         if (this.selectAllCiclos().isEmpty()) {
-            insertCiclo(Ciclo(0,"Administración de Sistemas Informáticos en Red","ASIR", 1))
-            insertCiclo(Ciclo(0,"Administración de Sistemas Informáticos en Red","ASIR", 2))
-            insertCiclo(Ciclo(0,"Desarrollo de Aplicaciones Multiplataforma","DAM", 1))
-            insertCiclo(Ciclo(0,"Desarrollo de Aplicaciones Multiplataforma","DAM", 2))
-            insertCiclo(Ciclo(0,"Desarrollo de Aplicaciones Web","DAW", 1))
-            insertCiclo(Ciclo(0,"Desarrollo de Aplicaciones Web","DAW", 2))
+            insertCiclo(Ciclo(0, "Administración de Sistemas Informáticos en Red", "ASIR", 1))
+            insertCiclo(Ciclo(0, "Administración de Sistemas Informáticos en Red", "ASIR", 2))
+            insertCiclo(Ciclo(0, "Desarrollo de Aplicaciones Multiplataforma", "DAM", 1))
+            insertCiclo(Ciclo(0, "Desarrollo de Aplicaciones Multiplataforma", "DAM", 2))
+            insertCiclo(Ciclo(0, "Desarrollo de Aplicaciones Web", "DAW", 1))
+            insertCiclo(Ciclo(0, "Desarrollo de Aplicaciones Web", "DAW", 2))
         }
     }
 }
