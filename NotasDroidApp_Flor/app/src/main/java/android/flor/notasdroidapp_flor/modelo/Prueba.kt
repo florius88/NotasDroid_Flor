@@ -4,11 +4,11 @@ import java.sql.Date
 
 class Prueba(
     val idprueba: Int,
-    val idalumno: Int,
-    val idasignatura: Int,
-    val titulo: String,
-    val descripcion: String,
-    val fecha: String,
-    val realizada: Int,
-    val calificacion: Double
+    var idalumno: Int,
+    var idasignatura: Int,
+    var titulo: String,
+    var descripcion: String,
+    var fecha: String,
+    var realizada: Int,
+    var calificacion: Double
 )

@@ -1,9 +1,12 @@
 package android.flor.notasdroidapp_flor
 
+import android.content.Intent
+import android.flor.notasdroidapp_flor.controladorDB.AlumnoDBHelper
+import android.flor.notasdroidapp_flor.modelo.Alumno
 import android.flor.notasdroidapp_flor.ui.IOnBackPressed
 import android.os.Bundle
 import android.view.Menu
-import android.widget.Toast
+import android.widget.TextView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.navigation.NavigationView
@@ -15,15 +18,33 @@ import androidx.navigation.ui.setupWithNavController
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
-import kotlin.system.exitProcess
 
 class PrincipalActivity : AppCompatActivity() {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
+    var email: String? = ""
+    lateinit var alumno: Alumno
+    lateinit var alumnosDBHelper: AlumnoDBHelper
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_principal)
+//        setResultListener("Email") { key, bundle ->
+//            val result = bundle.getString("Email")
+//        }
+
+        val objetoIntent: Intent = intent
+        email = objetoIntent.getStringExtra("Email")
+
+        if (null != email) {
+            val mail = email
+            if (null != mail) {
+                alumnosDBHelper = AlumnoDBHelper(this)
+                var alumnos = alumnosDBHelper.selectAlumnoEmail(mail)
+                alumno = alumnos[0]
+            }
+        }
+
         val toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
 
@@ -32,6 +53,7 @@ class PrincipalActivity : AppCompatActivity() {
             Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                 .setAction("Action", null).show()
         }
+
         val drawerLayout: DrawerLayout = findViewById(R.id.drawer_layout)
         val navView: NavigationView = findViewById(R.id.nav_view)
         val navController = findNavController(R.id.nav_host_fragment)
@@ -39,11 +61,19 @@ class PrincipalActivity : AppCompatActivity() {
         // menu should be considered as top level destinations.
         appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.nav_inicio, R.id.nav_miMatricula, R.id.nav_miExpediente
+                R.id.nav_inicio, R.id.nav_miMatricula, R.id.nav_miExpediente, R.id.nav_ajustes, R.id.nav_salir
             ), drawerLayout
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
+
+        val headerView = navView.getHeaderView(0)
+        val nav_email: TextView = headerView.findViewById(R.id.textViewNavEmail)
+        nav_email.text = email
+
+        val nav_nombre: TextView = headerView.findViewById(R.id.textViewNavNombre)
+        nav_nombre.text = alumno.nombre
+
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {

@@ -10,7 +10,7 @@
     <TextView
             android:text="@string/registro_registro"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" android:id="@+id/textView11"
+            android:layout_height="wrap_content" android:id="@+id/textViewRegistroRegistro"
             android:textSize="30sp" app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintHorizontal_bias="0.498"
@@ -149,5 +149,5 @@
             android:layout_height="wrap_content" android:id="@+id/buttonRegistroRegistrarse"
             app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent" android:textSize="18sp" android:layout_marginBottom="18dp"
-            android:layout_marginStart="80dp" android:layout_marginEnd="80dp"/>
+            android:layout_marginStart="80dp" android:layout_marginEnd="80dp" android:onClick="registrarse"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
