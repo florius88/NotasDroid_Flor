@@ -85,7 +85,7 @@ class Ciclo_AsignaturaDBHelper(context: Context) : SQLiteOpenHelper(context, DAT
             while (cursor.isAfterLast == false) {
                 idasignatura = cursor.getInt(cursor.getColumnIndex(DBCiclo_Asignatura.Ciclo_AsignaturaDAO.COLUMN_ID_ASIGNATURA))
 
-                relac.add(Ciclo_Asignatura(idciclo, idasignatura))
+                relac.add(Ciclo_Asignatura(idasignatura, idciclo))
                 cursor.moveToNext()
             }
         }
@@ -114,7 +114,7 @@ class Ciclo_AsignaturaDBHelper(context: Context) : SQLiteOpenHelper(context, DAT
                 idciclo = cursor.getInt(cursor.getColumnIndex(DBCiclo_Asignatura.Ciclo_AsignaturaDAO.COLUMN_ID_CICLO))
                 idasignatura = cursor.getInt(cursor.getColumnIndex(DBCiclo_Asignatura.Ciclo_AsignaturaDAO.COLUMN_ID_ASIGNATURA))
 
-                relac.add(Ciclo_Asignatura(idciclo, idasignatura))
+                relac.add(Ciclo_Asignatura(idasignatura, idciclo))
                 cursor.moveToNext()
             }
         }

@@ -56,7 +56,7 @@ class AlumnoDBHelper (context: Context) : SQLiteOpenHelper(context, DATABASE_NAM
 
         // Inserta un nuevo Alumno
         val values = ContentValues()
-        // values.put(DBAlumno.AlumnoDAO.COLUMN_ID_CICLO, alumno.idalumno) ------ Se supone que se incrementa solo
+        // values.put(DBAlumno.AlumnoDAO.COLUMN_ID_CICLO, alumno.idalumno) ------ Se incrementa solo
         values.put(DBAlumno.AlumnoDAO.COLUMN_NOMBRE, alumno.nombre)
         values.put(DBAlumno.AlumnoDAO.COLUMN_EMAIL, alumno.email)
         values.put(DBAlumno.AlumnoDAO.COLUMN_CONTRASENIA, alumno.contrasenia)
@@ -217,7 +217,7 @@ class AlumnoDBHelper (context: Context) : SQLiteOpenHelper(context, DATABASE_NAM
     }
 
     /**
-     *
+     * Funcion que actualiza los datos de un alumno
      */
     @Throws(SQLiteConstraintException::class)
     fun updateAlumno(alumno: Alumno): Boolean {
