@@ -171,13 +171,7 @@ class MiMatriculaFragment : Fragment(), IOnBackPressed {
                 }
             }
 
-            // Dibujamos los botones y eveneto. Nos lo creemos :):)
-            // IMPORTANTE
-            // Para que no te explote las imagenes deben ser PNG
-            // Así que añade un IMAGE ASEET bjándtelos de internet
-            // https://material.io/resources/icons/?style=baseline
-            // como PNG y cargas el de mayor calidad
-            // de otra forma Bitmap no funciona bien
+            // Dibujamos los botones
             override fun onChildDraw(
                 canvas: Canvas,
                 recyclerView: RecyclerView,
@@ -244,8 +238,8 @@ class MiMatriculaFragment : Fragment(), IOnBackPressed {
      * @param width Float
      */
     private fun botonIzquierdo(canvas: Canvas, dX: Float, itemView: View, width: Float) {
-        // Pintamos de azul y ponemos el icono
-        paintSweep.setColor(Color.BLUE)
+        // Pintamos de gris y ponemos el icono
+        paintSweep.setColor(Color.DKGRAY)
         val background = RectF(
             itemView.left.toFloat(), itemView.top.toFloat(), dX,
             itemView.bottom.toFloat()
