@@ -71,7 +71,8 @@
             app:layout_constraintEnd_toStartOf="@+id/imageButtonExpedienteFacebook"
             app:layout_constraintBottom_toBottomOf="parent" android:layout_marginEnd="10dp"
             android:layout_marginBottom="44dp" android:layout_marginStart="10dp"
-            app:layout_constraintStart_toEndOf="@+id/imageButtonExpedienteEmail"/>
+            app:layout_constraintStart_toEndOf="@+id/imageButtonExpedienteEmail"
+            app:srcCompat="@mipmap/ic_flor_twitter_foreground"/>
     <ImageView
             android:src="@drawable/ic_flor_twitter_background"
             android:layout_width="59dp"
@@ -79,7 +80,8 @@
             app:layout_constraintEnd_toStartOf="@+id/imageButtonExpedienteInstagram"
             app:layout_constraintBottom_toBottomOf="parent" android:layout_marginBottom="44dp"
             android:layout_marginEnd="10dp" android:layout_marginStart="10dp"
-            app:layout_constraintStart_toEndOf="@+id/imageButtonExpedienteTwitter"/>
+            app:layout_constraintStart_toEndOf="@+id/imageButtonExpedienteTwitter"
+            app:srcCompat="@mipmap/ic_flor_facebook_foreground"/>
     <ImageView
             android:src="@drawable/ic_flor_instagram"
             android:layout_width="59dp"
