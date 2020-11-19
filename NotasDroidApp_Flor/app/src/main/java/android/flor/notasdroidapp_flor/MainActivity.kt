@@ -55,21 +55,17 @@ class MainActivity : AppCompatActivity() {
         // Tabla Ciclos
         cicloDBHelper = CicloDBHelper(this)
         cicloDBHelper.insertarTodosCiclos()
-//        var ciclos = cicloDBHelper.selectAllCiclos()
 
         // Tabla Asignaturas
         asigDBHelper = AsignaturaDBHelper(this)
         asigDBHelper.insertarTodasAsignaturas()
-//        var asig = asigDBHelper.selectAllAsignaturas()
 
         // Tabla Ciclo_Asignatura
         relacionDBHelper = Ciclo_AsignaturaDBHelper(this)
         relacionDBHelper.insertarTodasRelaciones()
-//        var relaciones = relacionDBHelper.selectAllCicloAsignaturas()
 
         // Tabla Pruebas
         pruebaDBHelper = PruebaDBHelper(this)
-//        var pruebas = pruebaDBHelper.selectAllPruebas()
     }
 
 }

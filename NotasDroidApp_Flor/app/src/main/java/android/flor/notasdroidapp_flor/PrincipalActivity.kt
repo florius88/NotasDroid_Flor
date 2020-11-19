@@ -3,6 +3,7 @@ package android.flor.notasdroidapp_flor
 import android.content.Intent
 import android.flor.notasdroidapp_flor.controladorDB.AlumnoDBHelper
 import android.flor.notasdroidapp_flor.modelo.Alumno
+import android.flor.notasdroidapp_flor.modelo.Prueba
 import android.flor.notasdroidapp_flor.ui.IOnBackPressed
 import android.os.Bundle
 import android.view.Menu
@@ -22,6 +23,10 @@ import androidx.appcompat.widget.Toolbar
 class PrincipalActivity : AppCompatActivity() {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
+
+    public var isClicEventoFila = true
+    public var isClicEventoFilaPrueba = true
+    public lateinit var pruebaActual: Prueba
     var email: String? = ""
     lateinit var alumno: Alumno
     lateinit var alumnosDBHelper: AlumnoDBHelper
@@ -29,9 +34,6 @@ class PrincipalActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_principal)
-//        setResultListener("Email") { key, bundle ->
-//            val result = bundle.getString("Email")
-//        }
 
         val objetoIntent: Intent = intent
         email = objetoIntent.getStringExtra("Email")
