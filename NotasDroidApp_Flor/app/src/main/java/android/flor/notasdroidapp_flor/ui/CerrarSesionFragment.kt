@@ -65,7 +65,7 @@ class CerrarSesionFragment : Fragment() {
 
     fun aceptar() {
         try {
-            Toast.makeText(activity, "Aceptar.", Toast.LENGTH_SHORT)
+            //Toast.makeText(activity, "Aceptar.", Toast.LENGTH_SHORT)
             val intent = Intent(activity, LoginActivity::class.java)
             startActivity(intent)
 
@@ -85,7 +85,7 @@ class CerrarSesionFragment : Fragment() {
     }
 
     fun cancelar() {
-        Toast.makeText(activity, "Cancelar.", Toast.LENGTH_SHORT)
+        //Toast.makeText(activity, "Cancelar.", Toast.LENGTH_SHORT)
     }
 
 }
