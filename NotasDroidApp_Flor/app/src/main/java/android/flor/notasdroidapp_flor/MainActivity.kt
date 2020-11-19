@@ -18,7 +18,6 @@ class MainActivity : AppCompatActivity() {
 
         //Le damos tiempo
         Thread.sleep(3000)
-
         //Llamamos al tema creado para la splash
         setTheme(R.style.AppTheme)
 
@@ -45,38 +44,28 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    /**
+     * Funcion que carga todos los datos necesarios de la BBDD
+     */
     fun cargarBBDD(): Unit {
 
         // Tabla Alumnos
         alumnosDBHelper = AlumnoDBHelper(this)
-//
-//        var nombre = "flor"
-//        var email = "flor@flor.com"
-//        var contrasenia = "1234"
-//        var ciclo = 1
-//        var result = alumnosDBHelper.insertAlumno(Alumno(0, nombre, email, contrasenia, ciclo, 0))
-
-//        var alumnos = alumnosDBHelper.selectAllAlumnos()
 
         // Tabla Ciclos
         cicloDBHelper = CicloDBHelper(this)
         cicloDBHelper.insertarTodosCiclos()
-//        var ciclos = cicloDBHelper.selectAllCiclos()
 
         // Tabla Asignaturas
         asigDBHelper = AsignaturaDBHelper(this)
         asigDBHelper.insertarTodasAsignaturas()
-//        var asig = asigDBHelper.selectAllAsignaturas()
 
         // Tabla Ciclo_Asignatura
         relacionDBHelper = Ciclo_AsignaturaDBHelper(this)
         relacionDBHelper.insertarTodasRelaciones()
-//        var relaciones = relacionDBHelper.selectAllCicloAsignaturas()
 
         // Tabla Pruebas
         pruebaDBHelper = PruebaDBHelper(this)
-//        var pruebas = pruebaDBHelper.selectAllPruebas()
     }
-
 
 }

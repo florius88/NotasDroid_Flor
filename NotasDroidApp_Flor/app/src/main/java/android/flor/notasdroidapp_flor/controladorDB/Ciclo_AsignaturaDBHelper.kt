@@ -12,6 +12,7 @@ import android.flor.notasdroidapp_flor.modelo.Ciclo_Asignatura
 import android.flor.notasdroidapp_flor.modeloDAO.DBCiclo_Asignatura
 
 import java.util.ArrayList
+import kotlin.jvm.Throws
 
 class Ciclo_AsignaturaDBHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, null, DATABASE_VERSION) {
 
@@ -85,7 +86,7 @@ class Ciclo_AsignaturaDBHelper(context: Context) : SQLiteOpenHelper(context, DAT
             while (cursor.isAfterLast == false) {
                 idasignatura = cursor.getInt(cursor.getColumnIndex(DBCiclo_Asignatura.Ciclo_AsignaturaDAO.COLUMN_ID_ASIGNATURA))
 
-                relac.add(Ciclo_Asignatura(idciclo, idasignatura))
+                relac.add(Ciclo_Asignatura(idasignatura, idciclo))
                 cursor.moveToNext()
             }
         }
@@ -114,7 +115,7 @@ class Ciclo_AsignaturaDBHelper(context: Context) : SQLiteOpenHelper(context, DAT
                 idciclo = cursor.getInt(cursor.getColumnIndex(DBCiclo_Asignatura.Ciclo_AsignaturaDAO.COLUMN_ID_CICLO))
                 idasignatura = cursor.getInt(cursor.getColumnIndex(DBCiclo_Asignatura.Ciclo_AsignaturaDAO.COLUMN_ID_ASIGNATURA))
 
-                relac.add(Ciclo_Asignatura(idciclo, idasignatura))
+                relac.add(Ciclo_Asignatura(idasignatura, idciclo))
                 cursor.moveToNext()
             }
         }

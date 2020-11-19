@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">NotasDroidApp_Flor</string>
+    <string name="salir_aceptar">Acept</string>
+    <string name="ajustes_actualizar">Update</string>
+    <string name="ajustes_actualizarInfo">Update Information</string>
+    <string name="menu_ajustes">Settings</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="expediente_calificacion">Average rate</string>
+    <string name="login_password">Password</string>
+    <string name="login_entrar">Login</string>
+    <string name="login_registrarse">Sing in</string>
+    <string name="action_exportar">Export</string>
+    <string name="action_importar">Import</string>
+    <string name="menu_inicio">Home</string>
+    <string name="menu_miMatricula">My Enrollment</string>
+    <string name="menu_miExpediente">My Record</string>
+    <string name="menu_salir">Logout</string>
+    <string name="registro_registro">Register</string>
+    <string name="registro_nombre">Name</string>
+    <string name="registro_email">Email</string>
+    <string name="registro_contrasenia">Password</string>
+    <string name="registro_confirmarContrasenia">Confirm Password</string>
+    <string name="registro_foto">Photo</string>
+    <string name="registro_hacerFoto">Camera</string>
+    <string name="registro_seleccionarFoto">Select</string>
+    <string name="registro_ciclo">Cycle</string>
+    <string name="registro_curso">Course</string>
+    <string name="registro_registrarse">Sing in</string>
+    <string name="matricula_filtro">Filter</string>
+    <string name="salir_cancelar">Cancel</string>
+</resources>

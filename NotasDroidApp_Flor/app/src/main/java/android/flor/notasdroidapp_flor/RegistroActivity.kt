@@ -7,6 +7,7 @@ import android.flor.notasdroidapp_flor.controladorDB.CicloDBHelper
 import android.flor.notasdroidapp_flor.modelo.Alumno
 import android.flor.notasdroidapp_flor.modelo.Ciclo
 import android.os.Bundle
+import android.util.Patterns
 import android.view.View
 import android.widget.AdapterView
 import android.widget.AdapterView.OnItemSelectedListener
@@ -80,11 +81,8 @@ class RegistroActivity : AppCompatActivity() {
             contrasenia = editTextRegistroContrasenia.text.toString()
             comproContrasenia = editTextRegistroConfirmarContrasenia.text.toString()
 
-            if (nombre.equals("") || email.equals("") || ciclo.equals("") || contrasenia.equals("") || comproContrasenia.equals(
-                    ""
-                )
-                || curso.equals("")
-            ) {
+            if (nombre.equals("") || email.equals("") || ciclo.equals("") || contrasenia.equals("")
+                || comproContrasenia.equals("")|| curso.equals("")) {
 
                 Toast.makeText(this, "Los campos no pueden estar vacíos", Toast.LENGTH_SHORT).show()
 
@@ -93,25 +91,29 @@ class RegistroActivity : AppCompatActivity() {
 
                 // Si no devuelve alumnos, creamos uno nuevo
                 if (alumnos.isEmpty()) {
-                    // Si las contrasenias coinciden...
-                    if (contrasenia.equals(comproContrasenia)) {
-                        // Buscamos el id del ciclo
-                        var ciclos = cicloDBHelper.selectCicloByCursoNombre(ciclo, Integer.parseInt(curso))
-                        idciclo = ciclos[0].idciclo
+                    // Comprobamos el mail
+                    if (validarMail(email)) {
+                        // Si las contrasenias coinciden...
+                        if (contrasenia.equals(comproContrasenia)) {
+                            // Buscamos el id del ciclo
+                            var ciclos = cicloDBHelper.selectCicloByCursoNombre(ciclo, Integer.parseInt(curso))
+                            idciclo = ciclos[0].idciclo
 
-                        alumno = Alumno(0, nombre, email, contrasenia, idciclo, 0)
+                            alumno = Alumno(0, nombre, email, contrasenia, idciclo, 0)
 
-                        alumnosDBHelper.insertAlumno(alumno)
+                            alumnosDBHelper.insertAlumno(alumno)
 
-                        Toast.makeText(this, "Usuario creado correctamente", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(this, "Usuario creado correctamente", Toast.LENGTH_SHORT).show()
 
-                        val intent = Intent(this, LoginActivity::class.java).apply {
+                            val intent = Intent(this, LoginActivity::class.java).apply {
+                            }
+                            startActivity(intent)
+
+                        } else {
+                            Toast.makeText(this, "Las contraseñas no coindicen", Toast.LENGTH_SHORT).show()
                         }
-                        startActivity(intent)
-
-
                     } else {
-                        Toast.makeText(this, "Las contraseñas no coindicen", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this, "El mail no tiene el formato correcto", Toast.LENGTH_SHORT).show()
                     }
 
                 } else {
@@ -119,8 +121,19 @@ class RegistroActivity : AppCompatActivity() {
 
                 }
             }
-        } catch (e: Exception){
+        } catch (e: Exception) {
             Toast.makeText(this, "Se ha producido un Error", Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    /**
+     * Funcion para comprobar que el mail es correcto
+     */
+    private fun validarMail(email: String): Boolean {
+        return if (email.contains('@')) {
+            Patterns.EMAIL_ADDRESS.matcher(email).matches()
+        } else {
+            email.isNotBlank()
         }
     }
 }

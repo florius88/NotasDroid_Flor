@@ -40,7 +40,6 @@ class LoginActivity : AppCompatActivity() {
     fun entrar(view: View) {
         try {
 
-
             alumnosDBHelper = AlumnoDBHelper(this)
             var alumno: Alumno
             var email: String

@@ -11,6 +11,7 @@ import android.flor.notasdroidapp_flor.modelo.Asignatura
 import android.flor.notasdroidapp_flor.modeloDAO.DBAsignatura
 
 import java.util.ArrayList
+import kotlin.jvm.Throws
 
 class AsignaturaDBHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, null, DATABASE_VERSION) {
 
