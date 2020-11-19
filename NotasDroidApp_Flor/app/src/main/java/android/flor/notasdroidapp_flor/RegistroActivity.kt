@@ -7,6 +7,7 @@ import android.flor.notasdroidapp_flor.controladorDB.CicloDBHelper
 import android.flor.notasdroidapp_flor.modelo.Alumno
 import android.flor.notasdroidapp_flor.modelo.Ciclo
 import android.os.Bundle
+import android.util.Patterns
 import android.view.View
 import android.widget.AdapterView
 import android.widget.AdapterView.OnItemSelectedListener
@@ -129,10 +130,10 @@ class RegistroActivity : AppCompatActivity() {
      * Funcion para comprobar que el mail es correcto
      */
     private fun validarMail(email: String): Boolean {
-        return if (emailUser.contains('@')) {
+        return if (email.contains('@')) {
             Patterns.EMAIL_ADDRESS.matcher(email).matches()
         } else {
-            emailUser.isNotBlank()
+            email.isNotBlank()
         }
     }
 }

@@ -12,6 +12,7 @@ import android.flor.notasdroidapp_flor.modelo.Ciclo_Asignatura
 import android.flor.notasdroidapp_flor.modeloDAO.DBCiclo_Asignatura
 
 import java.util.ArrayList
+import kotlin.jvm.Throws
 
 class Ciclo_AsignaturaDBHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, null, DATABASE_VERSION) {
 
