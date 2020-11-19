@@ -8,15 +8,14 @@
         tools:context=".ui.mi_expediente.MiExpedienteFragment">
     <ImageView
             android:layout_width="240dp"
-            android:layout_height="240dp" tools:src="@tools:sample/avatars" android:id="@+id/imageViewExpedienteFoto"
-            android:background="#FFFFFF"
-            app:srcCompat="@color/colorPrimary"
+            android:layout_height="240dp" tools:src="@drawable/ic_flor_avatar" android:id="@+id/imageViewExpedienteFoto"
+            app:srcCompat="@drawable/ic_flor_avatar"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toTopOf="@+id/textViewExpedienteNombre"
             app:layout_constraintHorizontal_bias="0.498" app:layout_constraintVertical_bias="0.816"
-            android:layout_marginBottom="5dp"/>
+            android:layout_marginBottom="5dp" tools:srcCompat="@drawable/ic_flor_avatar"/>
     <TextView
             android:text="Nombre"
             android:layout_width="match_parent"
@@ -58,33 +57,34 @@
             android:layout_marginBottom="15dp"
             app:layout_constraintStart_toEndOf="@+id/textViewExpedienteCalificacion" android:layout_marginStart="10dp"/>
     <ImageView
-            android:src="@android:drawable/ic_dialog_email"
+            android:src="@drawable/ic_flor_gmail"
             android:layout_width="59dp"
             android:layout_height="59dp" android:id="@+id/imageButtonExpedienteEmail"
             app:layout_constraintEnd_toStartOf="@+id/imageButtonExpedienteTwitter"
             app:layout_constraintBottom_toBottomOf="parent" android:layout_marginEnd="10dp"
             android:layout_marginBottom="15dp" app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="40dp" app:srcCompat="@drawable/ic_flor_gmail"/>
+            android:layout_marginStart="40dp" app:srcCompat="@drawable/ic_flor_gmail"
+            tools:srcCompat="@drawable/ic_flor_gmail"/>
     <ImageView
-            android:src="@android:drawable/btn_star_big_on"
+            android:src="@mipmap/ic_flor_twitter"
             android:layout_width="59dp"
             android:layout_height="59dp" android:id="@+id/imageButtonExpedienteTwitter"
             app:layout_constraintEnd_toStartOf="@+id/imageButtonExpedienteFacebook"
             app:layout_constraintBottom_toBottomOf="parent" android:layout_marginEnd="10dp"
             android:layout_marginBottom="15dp" android:layout_marginStart="10dp"
             app:layout_constraintStart_toEndOf="@+id/imageButtonExpedienteEmail"
-            app:srcCompat="@mipmap/ic_flor_twitter_foreground"/>
+            app:srcCompat="@mipmap/ic_flor_twitter" tools:srcCompat="@mipmap/ic_flor_twitter"/>
     <ImageView
-            android:src="@drawable/ic_launcher_foreground"
+            android:src="@mipmap/ic_flor_facebook"
             android:layout_width="59dp"
             android:layout_height="59dp" android:id="@+id/imageButtonExpedienteFacebook"
             app:layout_constraintEnd_toStartOf="@+id/imageButtonExpedienteInstagram"
             app:layout_constraintBottom_toBottomOf="parent" android:layout_marginBottom="15dp"
             android:layout_marginEnd="10dp" android:layout_marginStart="10dp"
             app:layout_constraintStart_toEndOf="@+id/imageButtonExpedienteTwitter"
-            app:srcCompat="@mipmap/ic_flor_facebook_foreground"/>
+            app:srcCompat="@mipmap/ic_flor_facebook" tools:srcCompat="@mipmap/ic_flor_facebook"/>
     <ImageView
-            android:src="@drawable/ic_menu_camera"
+            android:src="@drawable/ic_flor_instagram"
             android:layout_width="59dp"
             android:layout_height="59dp" android:id="@+id/imageButtonExpedienteInstagram"
             app:layout_constraintBottom_toBottomOf="parent"

@@ -24,7 +24,6 @@
                     android:layout_height="match_parent"
                     tools:layout_editor_absoluteX="222dp"
                     tools:layout_editor_absoluteY="169dp"
-                    android:background="@color/primary_light"
                     tools:listitem="@layout/item_asignatura"/>
 
         </ScrollView>

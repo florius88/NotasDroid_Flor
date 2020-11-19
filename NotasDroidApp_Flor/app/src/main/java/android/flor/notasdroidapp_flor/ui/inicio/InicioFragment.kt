@@ -31,7 +31,7 @@ class InicioFragment : Fragment(), IOnBackPressed {
         val root = inflater.inflate(R.layout.fragment_inicio, container, false)
         val textView: TextView = root.findViewById(R.id.nav_inicio)
         inicioViewModel.text.observe(viewLifecycleOwner, Observer {
-            textView.text = it
+            textView.text = "Bienvenido a su aplicación de notas"
         })
         return root
     }

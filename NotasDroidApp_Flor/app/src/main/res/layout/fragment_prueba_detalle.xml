@@ -12,22 +12,86 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" android:background="@color/divider"
-            app:layout_constraintHorizontal_bias="1.0" app:layout_constraintVertical_bias="0.0">
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintHorizontal_bias="1.0" app:layout_constraintVertical_bias="0.0"
+            android:background="@color/icons">
 
         <TextView
                 android:id="@+id/noticiaDetalleTextTitular"
-                android:layout_width="400dp"
-                android:layout_height="52dp"
-                android:layout_marginStart="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
                 android:layout_marginTop="5dp"
                 android:lines="3"
                 android:textAlignment="center"
                 android:textAllCaps="true"
                 android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                android:textColor="@color/colorPrimaryDark"
-                android:textSize="18sp"
-                android:textStyle="bold" android:text="Prueba"/>
+                android:textSize="30sp"
+                android:textStyle="bold" android:text="Prueba" android:textColor="@color/secondary_text"/>
+        <TextView
+                android:text="Nombre"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:id="@+id/textView" android:layout_marginTop="20dp"
+                android:layout_below="@+id/noticiaDetalleTextTitular"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp" android:layout_marginBottom="1dp" android:textSize="18sp"/>
+        <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:ems="10"
+                android:id="@+id/editTextTextPersonName" android:layout_marginTop="1dp"
+                android:layout_below="@+id/textView"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"/>
+        <TextView
+                android:text="Fecha"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:id="@+id/textView2" android:layout_marginBottom="-40dp"
+                android:layout_alignBottom="@+id/editTextTextPersonName"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp" android:textSize="18sp"/>
+        <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="date"
+                android:ems="10"
+                android:id="@+id/editTextDate"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp" android:layout_marginTop="40dp"
+                android:layout_below="@+id/textView2"/>
+        <TextView
+                android:text="Realizada"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:id="@+id/textView3"
+                android:layout_marginTop="20dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp" android:textSize="18sp" android:layout_below="@+id/editTextDate"/>
+        <CheckBox
+                android:text="CheckBox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:id="@+id/checkBox" android:layout_marginTop="20dp"
+                android:layout_below="@+id/textView3" android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"/>
+        <TextView
+                android:text="Calificación"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:id="@+id/textView4" android:layout_marginTop="20dp"
+                android:layout_below="@+id/checkBox" android:textSize="18sp" android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"/>
+        <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:ems="10"
+                android:id="@+id/editTextNumber" android:layout_marginTop="20dp"
+                android:layout_below="@+id/textView4" android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"/>
+        <Button
+                android:text="Guardar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:id="@+id/button" android:layout_marginTop="20dp"
+                android:layout_below="@+id/editTextNumber" android:layout_marginStart="80dp"
+                android:layout_marginEnd="80dp"/>
 
     </RelativeLayout>
 
