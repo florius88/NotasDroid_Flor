@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:id="@+id/mobile_navigation"
+            app:startDestination="@+id/nav_inicio">
+
+    <fragment
+            android:id="@+id/nav_inicio"
+            android:name="android.flor.notasdroidapp_flor.ui.inicio.InicioFragment"
+            android:label="@string/menu_inicio"
+            tools:layout="@layout/fragment_inicio">
+        <action android:id="@+id/action_nav_inicio_to_nav_miMatricula" app:destination="@id/nav_miMatricula"/>
+        <action android:id="@+id/action_nav_inicio_to_nav_miExpediente" app:destination="@id/nav_miExpediente"/>
+        <action android:id="@+id/action_nav_inicio_to_nav_ajustes" app:destination="@id/nav_ajustes"/>
+        <action android:id="@+id/action_nav_inicio_to_nav_salir" app:destination="@id/nav_salir"/>
+    </fragment>
+
+    <fragment
+            android:id="@+id/nav_miMatricula"
+            android:name="android.flor.notasdroidapp_flor.ui.mi_matricula.MiMatriculaFragment"
+            android:label="@string/menu_miMatricula"
+            tools:layout="@layout/fragment_mi_matricula">
+        <action android:id="@+id/action_nav_miMatricula_to_fragment_pruebas2" app:destination="@id/fragment_pruebas"/>
+    </fragment>
+
+    <fragment
+            android:id="@+id/fragment_pruebas"
+            android:name="android.flor.notasdroidapp_flor.ui.mi_matricula.PruebasFragment"
+            tools:layout="@layout/fragment_mi_matricula">
+        <action android:id="@+id/action_fragment_pruebas_to_nav_miMatricula" app:destination="@id/nav_miMatricula"/>
+    </fragment>
+
+    <fragment
+            android:id="@+id/nav_miExpediente"
+            android:name="android.flor.notasdroidapp_flor.ui.mi_expediente.MiExpedienteFragment"
+            android:label="@string/menu_miExpediente"
+            tools:layout="@layout/fragment_mi_expediente"/>
+
+    <fragment
+            android:id="@+id/nav_ajustes"
+            android:name="android.flor.notasdroidapp_flor.ui.ajustes.AjustesFragment"
+            android:label="@string/menu_ajustes"
+            tools:layout="@layout/fragment_ajustes"/>
+
+    <fragment
+            android:id="@+id/nav_salir"
+            android:name="android.flor.notasdroidapp_flor.ui.CerrarSesionFragment"
+            android:label="@string/menu_inicio"
+            tools:layout="@layout/fragment_inicio"/>
+
+</navigation>

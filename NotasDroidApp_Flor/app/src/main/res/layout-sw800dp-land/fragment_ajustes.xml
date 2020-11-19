@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.ajustes.AjustesFragment">
+    <TextView
+            android:text="@string/ajustes_actualizarInfo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/textViewAjustesInformacion"
+            android:textSize="30sp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintBottom_toTopOf="@+id/textViewAjustesNombre"
+            android:layout_marginBottom="20dp" app:layout_constraintHorizontal_bias="0.492"
+            app:layout_constraintVertical_bias="0.794" android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"/>
+    <TextView
+            android:text="@string/registro_nombre"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:id="@+id/textViewAjustesNombre"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toTopOf="@+id/editTextAjustesNombre"
+            app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.121" android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp" android:layout_marginBottom="10dp"/>
+    <EditText
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:ems="10"
+            android:id="@+id/editTextAjustesNombre"
+            app:layout_constraintBottom_toTopOf="@+id/textVieAjustesEmail"
+            app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginBottom="20dp" android:layout_marginStart="20dp" android:layout_marginEnd="20dp"/>
+    <TextView
+            android:text="@string/registro_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:id="@+id/textVieAjustesEmail"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toTopOf="@+id/editTextAjustesEmail"
+            app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.116" android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp" android:layout_marginBottom="10dp"/>
+    <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textEmailAddress"
+            android:ems="10"
+            android:id="@+id/editTextAjustesEmail"
+            app:layout_constraintBottom_toTopOf="@+id/textViewAjustesFoto"
+            app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginBottom="20dp" android:layout_marginStart="20dp" android:layout_marginEnd="20dp"/>
+    <TextView
+            android:text="@string/registro_foto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:id="@+id/textViewAjustesFoto"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/buttonAjustesHacerFoto"
+            app:layout_constraintHorizontal_bias="0.498" android:layout_marginBottom="10dp"
+            android:layout_marginStart="20dp" android:layout_marginEnd="20dp" android:textAlignment="center"/>
+    <Button
+            android:text="@string/registro_hacerFoto"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" android:id="@+id/buttonAjustesHacerFoto"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/buttonAjustesSeleccionarFoto"
+            app:layout_constraintBottom_toTopOf="@+id/textViewAjustesCiclo"
+            app:layout_constraintHorizontal_bias="0.855" android:layout_marginBottom="20dp"
+            android:layout_marginStart="20dp" android:layout_marginEnd="8dp"/>
+    <Button
+            android:text="@string/registro_seleccionarFoto"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" android:id="@+id/buttonAjustesSeleccionarFoto"
+            android:textSize="18sp" app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="20dp" app:layout_constraintBottom_toTopOf="@+id/textViewAjustesCurso"
+            android:layout_marginBottom="20dp" android:layout_marginStart="8dp"
+            app:layout_constraintStart_toEndOf="@+id/buttonAjustesHacerFoto"/>
+    <TextView
+            android:text="@string/registro_ciclo"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" android:id="@+id/textViewAjustesCiclo"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/textViewAjustesCurso"
+            app:layout_constraintBottom_toTopOf="@+id/spinnerAjustesCiclo" app:layout_constraintHorizontal_bias="0.201"
+            android:layout_marginStart="20dp" android:layout_marginEnd="8dp" android:layout_marginBottom="10dp"/>
+    <Spinner
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" android:id="@+id/spinnerAjustesCurso"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="20dp" app:layout_constraintBottom_toTopOf="@+id/textViewAjustesContrasenia"
+            android:layout_marginBottom="20dp" android:layout_marginStart="8dp"
+            app:layout_constraintStart_toEndOf="@+id/spinnerAjustesCiclo"/>
+    <TextView
+            android:text="@string/registro_curso"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" android:id="@+id/textViewAjustesCurso"
+            android:textSize="18sp" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/spinnerAjustesCurso" android:layout_marginEnd="20dp"
+            android:layout_marginStart="8dp" app:layout_constraintStart_toEndOf="@+id/textViewAjustesCiclo"
+            android:layout_marginBottom="10dp"/>
+    <Spinner
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" android:id="@+id/spinnerAjustesCiclo"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/spinnerAjustesCurso" app:layout_constraintHorizontal_bias="0.619"
+            app:layout_constraintBottom_toTopOf="@+id/textViewAjustesContrasenia" android:layout_marginBottom="20dp"
+            android:layout_marginStart="20dp" android:layout_marginEnd="8dp"/>
+    <TextView
+            android:text="@string/registro_contrasenia"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:id="@+id/textViewAjustesContrasenia"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/editTextAjustesContrasenia"
+            app:layout_constraintHorizontal_bias="0.118" android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp" android:layout_marginBottom="10dp"/>
+    <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:ems="10"
+            android:id="@+id/editTextAjustesContrasenia"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/textViewAjustesConfirmarContrasenia"
+            android:layout_marginBottom="20dp" app:layout_constraintHorizontal_bias="0.458"
+            android:layout_marginStart="20dp" android:layout_marginEnd="20dp"/>
+    <TextView
+            android:text="@string/registro_confirmarContrasenia"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:id="@+id/textViewAjustesConfirmarContrasenia"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/editTextAjustesConfirmarContrasenia"
+            app:layout_constraintHorizontal_bias="0.158" android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp" android:layout_marginBottom="10dp"/>
+    <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:ems="10"
+            android:id="@+id/editTextAjustesConfirmarContrasenia"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/buttonAjustesActualizar"
+            app:layout_constraintHorizontal_bias="0.447" android:layout_marginBottom="35dp"
+            android:layout_marginStart="20dp" android:layout_marginEnd="20dp"/>
+    <Button
+            android:text="@string/ajustes_actualizar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:id="@+id/buttonAjustesActualizar"
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintHorizontal_bias="0.498"
+            android:layout_marginBottom="35dp" android:textSize="18sp" android:layout_marginStart="40dp"
+            android:layout_marginEnd="40dp"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

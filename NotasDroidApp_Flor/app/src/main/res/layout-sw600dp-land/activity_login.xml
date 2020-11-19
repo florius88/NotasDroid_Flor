@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".LoginActivity">
+
+    <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" app:srcCompat="@mipmap/ic_flor_calendario"
+            android:id="@+id/imageViewLoginLogo"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/textViewLoginEmail" app:layout_constraintVertical_bias="0.908"
+            app:layout_constraintHorizontal_bias="0.497" android:layout_marginBottom="10dp"
+            android:layout_marginTop="20dp"/>
+    <TextView
+            android:text="@string/login_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:id="@+id/textViewLoginEmail"
+            android:textSize="18sp" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/editTextTextEmailAddressLogin"
+            app:layout_constraintHorizontal_bias="0.194" android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp" android:layout_marginBottom="10dp"/>
+    <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textEmailAddress"
+            android:ems="10"
+            android:id="@+id/editTextTextEmailAddressLogin"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintHorizontal_bias="0.488" app:layout_constraintBottom_toTopOf="@+id/textViewLoginContrasenia"
+            android:layout_marginBottom="20dp" android:layout_marginStart="20dp" android:layout_marginEnd="20dp"/>
+    <TextView
+            android:text="@string/login_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:id="@+id/textViewLoginContrasenia"
+            android:textSize="18sp" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/editTextTextPasswordLogin"
+            app:layout_constraintHorizontal_bias="0.203" android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp" android:layout_marginBottom="10dp"/>
+    <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:ems="10"
+            android:id="@+id/editTextTextPasswordLogin"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintHorizontal_bias="0.474" app:layout_constraintBottom_toTopOf="@+id/buttonLoginEntrar"
+            android:layout_marginBottom="40dp" android:layout_marginStart="20dp" android:layout_marginEnd="20dp"/>
+    <TextView
+            android:text="@string/login_registrarse"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:id="@+id/textViewLoginRegistro"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="40dp" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" app:layout_constraintHorizontal_bias="0.498"
+            android:onClick="registrarse" android:layout_marginStart="150dp" android:layout_marginEnd="150dp"
+            android:textAlignment="center"/>
+    <Button
+            android:text="@string/login_entrar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:id="@+id/buttonLoginEntrar"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/textViewLoginRegistro" android:layout_marginBottom="20dp"
+            android:onClick="entrar" android:layout_marginStart="100dp" android:layout_marginEnd="100dp"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

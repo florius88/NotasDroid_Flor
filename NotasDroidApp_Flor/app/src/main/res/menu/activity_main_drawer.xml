@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:tools="http://schemas.android.com/tools"
+      tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+                android:id="@+id/nav_inicio"
+                android:icon="@android:drawable/ic_menu_agenda"
+                android:title="@string/menu_inicio"/>
+        <item
+                android:id="@+id/nav_miMatricula"
+                android:icon="@android:drawable/ic_input_get"
+                android:title="@string/menu_miMatricula"/>
+        <item
+                android:id="@+id/nav_miExpediente"
+                android:icon="@drawable/ic_sweep_detalles"
+                android:title="@string/menu_miExpediente"/>
+        <item
+                android:id="@+id/nav_ajustes"
+                android:icon="@android:drawable/ic_menu_manage"
+                android:title="@string/menu_ajustes"/>
+        <item
+                android:id="@+id/nav_salir"
+                android:icon="@android:drawable/ic_lock_power_off"
+                android:title="@string/menu_salir"/>
+    </group>
+</menu>
